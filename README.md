@@ -180,6 +180,16 @@ var schema = {
 };
 ```
 
+# Extending bookshelf model
+---
+bookshelf.js allows you to extend its models with protoProps and classProperties (see bookshelf.js extend documentation). bookshelf-factory also allows you to provide this in the schema definition with the following properties
+* **extendProto** (gets passed as the protoProps argument in bookshelf.Model.extend())
+  * object of properties and their associated values
+* **extendClass** (gets passed as the classProperties argument in bookshelf.Model.extend())
+  * object of properties and their associated values
+
+
+
 # .getResources
 ---
 .getResources is a function added to every model created that combines all of the functionality of bookshelf-factory. The function takes an object as its argument. If the argument is not provided all resources in the model will be returned unfiltered. There are no required arguments
