@@ -1,4 +1,4 @@
-// create a database connection
+// create a database connection config
 var db = {
 	"client": "mysql",
 	"connection": {
@@ -7,8 +7,7 @@ var db = {
 		"password": "password",
 		"database": "test",
 		"charset": "utf8"
-	},
-	"debug": false
+	}
 };
 
 
@@ -16,23 +15,18 @@ var db = {
 
 
 // import the modules
-var _         = require('lodash');
-var dotprune  = require('dotprune');
-var knex      = require('knex')(db);
-var bookshelf = require('bookshelf')(knex);
-var schemer   = require('knex-schemer')(knex);
-var factory   = require('../lib/factory')(bookshelf);
-var schema    = require('./schema')(schemer.constants);
+var factory   = require('../lib/factory')({ db: db });
+var schema    = require('./schema')(factory.schemer.constants);
 var data      = require('./sample-data');
 
 
 // drop the schema
-schemer.drop(schema).then(function() {
+factory.schemer.drop(schema).then(function() {
 	
 	// create a database
-	return schemer.sync(schema).then(function() {
+	return factory.schemer.sync(schema).then(function() {
 		// load the data
-		return schemer.convertAndLoad(data, schema).then(function() {
+		return factory.schemer.convertAndLoad(data, schema).then(function() {
 			
 			// forge all of the model definitions
 			var models = factory.create(schema);
@@ -42,9 +36,7 @@ schemer.drop(schema).then(function() {
 			};
 
 			
-			models.survivor
-			.forge()
-			.getResources({
+			models.survivor.forge().getResources({
 				view: 'summary',
 				query: function(qb) {
 					qb.limit(1);

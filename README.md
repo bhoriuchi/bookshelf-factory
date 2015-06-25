@@ -14,8 +14,21 @@ npm install -g bookshelf-factory
 
 ##### JavaScript
 ```js
-// require the package
-var factory = require('bookshelf-factory');
+// create a database connection config
+var db = {
+	"client": "mysql",
+	"connection": {
+		"host": "127.0.0.1",
+		"user": "db",
+		"password": "password",
+		"database": "test",
+		"charset": "utf8"
+	}
+};
+
+// require the package and pass the db connection config as a 
+// property of an object
+var factory = require('bookshelf-factory')({ db: db });
 
 // define a schema in schemer format
 // in this example survivor.id has the views extended property that defines
@@ -26,9 +39,9 @@ var schema = {
         survivor: {
             id: {type: c.type.integer, primary: true, increments: true, views: ['summary']},
             name: {type: c.type.string, size: 200, views: ['summary']},
-            groups: {ignore: true, belongsToMany: 'group', views: ['summary']},
+            groups: {belongsToMany: 'group', views: ['summary']},
             station_id: {type: c.type.integer},
-            station: {ignore: true, belongsTo: 'station', views: ['summary']}
+            station: {belongsTo: 'station', views: ['summary']}
         },
         group: {
             id: {type: c.type.integer, primary: true, increments: true},
@@ -107,6 +120,66 @@ models.survivor.forge().getResources().then(function(results) {
 ]
 ```
 
+# Schema Definition
+---
+bookshelf-factory builds on the knex-schemer format for defining database schema by adding additional properties that can be interpreted for relationships and views
+
+##### Format
+```js
+var schema = {
+    <table 1 name>: {
+        <column 1 name>: { type: <data type>, [additional column options] },
+        <column 2 name>: {
+            ignore: true, 
+            <relationship type>: <related table>, 
+            [additional options] 
+        },
+        ...
+    },
+    <table 2 name>: {
+        <column 1 name>: { type: <data type>, [additional column options] },
+        <column 2 name>: { type: <data type>, [additional column options] },
+        ...
+    },
+    ...
+};
+```
+# Relationships
+---
+Bookshelf relationships can be defined in the schema using the following options and optional properties
+
+**Relationship Types**
+* **hasOne**
+  * model name
+* **hasMany**
+  * model name
+* **belongsTo**
+  * model name
+* **belongsToMany**
+  * model name
+
+**Modifiers** (optional)
+* **foreignKey** (can be used in combination with any relation)
+* **otherKey** (only used with ***belongsToMany***)
+* **junction** (junction table name, used with ***belongsToMany***)
+
+##### Example
+```js
+var schema = {
+    survivor: {
+        id: {type: c.type.integer, primary: true, increments: true},
+        name: {type: c.type.string, size: 200},
+        groups: {
+            belongsToMany: 'group', 
+            foreignKey: 'group_id', 
+            otherKey: 'survivor_id', 
+            junction: 'group_survivor'
+        },
+        station: {belongsTo: 'station', foreignKey: 'id'}
+    }
+};
+```
+
 # .getResources
 ---
 .getResources is a function added to every model created that combines all of the functionality of bookshelf-factory. The function takes an object as its argument. If the argument is not provided all resources in the model will be returned unfiltered. There are no required arguments
@@ -120,7 +193,7 @@ var args = {
     fetchOpts: <an object containing fetch options>
 };
 ```
-
+As you can see
 # Views
 ---
 Using the schema from the **Basic Example** you can see that the **views** field has been defined as an array of values. This specifies that this field will be part of that view. The caveat is that related properties need to have their parent property included in the view. In the example of the survivor table schema groups is a related field and if we want groups.name to participate in the summary view when getting the survivor model both survivor.groups and groups.name need to have the summary view defined. If we add the summary view to only the groups column in the survivor schema, all properties of groups will participate in the view 
@@ -182,11 +255,11 @@ Notice that the id field has been removed from the group objects
 ```
 
 
-# Plugging into knex
+# Plugging into bookshelf's query builder
 ---
 Using the .getResources function, set the **query** argument to a bookshelf query builder function
 
-##### Example to return 1 result using knex query builder
+##### Example to return 1 result using the query builder
 ```js
 // using the schema from Basic Example
 
@@ -231,8 +304,8 @@ models.survivor.forge().getResources({
 
 
 
-### Tools
-
+# Tools
+---
 Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)
  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))   
 
