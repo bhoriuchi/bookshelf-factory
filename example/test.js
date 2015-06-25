@@ -7,7 +7,8 @@ var db = {
 		"password": "password",
 		"database": "test",
 		"charset": "utf8"
-	}
+	},
+	debug: false
 };
 
 
@@ -36,7 +37,9 @@ factory.schemer.drop(schema).then(function() {
 			};
 
 			
-			models.survivor.forge().getResources({
+			var m = models.survivor.forge();
+			
+			m.getResources({
 				view: 'summary',
 				query: function(qb) {
 					qb.limit(1);

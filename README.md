@@ -33,8 +33,7 @@ var factory = require('bookshelf-factory')({ db: db });
 // define a schema in schemer format
 // in this example survivor.id has the views extended property that defines
 // views that property belongs to. survivor.groups also has the extended
-// property belongsToMany and specifies that the group table will be used
-// as a junction table
+// property belongsToMany and specifies the model to use for the relationship
 var schema = {
         survivor: {
             id: {type: c.type.integer, primary: true, increments: true, views: ['summary']},

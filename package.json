@@ -1,6 +1,6 @@
 {
   "name": "bookshelf-factory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create all models along with relationships using the knex-schemer schema definition format",
   "main": "lib/factory.js",
   "repository": {
@@ -8,7 +8,12 @@
     "url": "git+https://github.com/bhoriuchi/bookshelf-factory.git"
   },
   "keywords": [
-    "api"
+    "bookshelf",
+    "knex",
+    "model",
+    "relations",
+    "filter",
+    "factory"
   ],
   "author": "Branden Horiuchi <bhoriuchi@gmail.com>",
   "license": "MIT",
@@ -22,7 +27,7 @@
   "dependencies": {
     "knex": "^0.8.6",
     "bluebird": "^2.9.27",
-    "knex-schemer": "^0.1.6",
+    "knex-schemer": "^0.1.7",
     "bookshelf": "^0.8.1",
     "dotprune": "^0.1.0",
     "lodash": "^3.9.3"

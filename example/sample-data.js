@@ -1,19 +1,19 @@
 module.exports = {
 		survivor: [
-            { id: 1, name: "Hugo Reyes", station_id: 1 },
-            { id: 2, name: "Sayid Jarrah", station_id: 2 },
-            { id: 3, name: "Jack Shephard", station_id: 1 },
-            { id: 4, name: "James Ford", station_id: 3 },
-            { id: 5, name: "Jin Kwon", station_id: 4 },
-            { id: 6, name: "Sun Kwon", station_id: 5 },
-            { id: 7, name: "Kate Austen", station_id: 6 },
-            { id: 8, name: "John Locke", station_id: 7 },
-            { id: 9, name: "Claire Littleton", station_id: 8 },
-            { id: 10, name: "Ben Linus", station_id: 8 },
-            { id: 11, name: "Desmond Hume", station_id: 9 },
-            { id: 12, name: "Charlie Pace", station_id: 10 },
-            { id: 13, name: "Libby Smith", station_id: 10 },
-            { id: 14, name: "Anna Lucia Cortez", station_id: 10 }
+            { sid: 1, name: "Hugo Reyes", station_id: 1 },
+            { sid: 2, name: "Sayid Jarrah", station_id: 2 },
+            { sid: 3, name: "Jack Shephard", station_id: 1 },
+            { sid: 4, name: "James Ford", station_id: 3 },
+            { sid: 5, name: "Jin Kwon", station_id: 4 },
+            { sid: 6, name: "Sun Kwon", station_id: 5 },
+            { sid: 7, name: "Kate Austen", station_id: 6 },
+            { sid: 8, name: "John Locke", station_id: 7 },
+            { sid: 9, name: "Claire Littleton", station_id: 8 },
+            { sid: 10, name: "Ben Linus", station_id: 8 },
+            { sid: 11, name: "Desmond Hume", station_id: 9 },
+            { sid: 12, name: "Charlie Pace", station_id: 10 },
+            { sid: 13, name: "Libby Smith", station_id: 10 },
+            { sid: 14, name: "Anna Lucia Cortez", station_id: 10 }
         ],
         group: [
             { id: 1, name: "castaways" },
