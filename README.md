@@ -4,18 +4,25 @@
 ---
 bookshelf-factory is a tool that extends the knex-schemer schema definition format to produce an object containing models for each table defined. Using this tool you can define relationships between models as well as views for specific data. The tool also takes care of withRelated for you and provides a custom getResources function that allows you to combine all of the functionality into 1 function while still allowing you to use knex query functions
 
+# Whats New?
+* 6/26/2015
+  * Realized that chaining the view and other functions would be better than passing them as arguments, so the getResources function now only takes the parameters you would normally pass to the bookshelf.js fetch functions
+  * added chainable view() function
+  * added getResource() function that intelligently gets the resource based on its primary key using a specified id
+  * added automatic idAttribute assignment based on primary and composite keys
+  * updated to version **0.1.1**
+
 # Install
 ---
 ```bash
 npm install -g bookshelf-factory
 ```
 
-# Basic Example
-
-##### JavaScript
+# Usage
+---
 ```js
 // create a database connection config
-var db = {
+var config = {
 	"client": "mysql",
 	"connection": {
 		"host": "127.0.0.1",
@@ -26,9 +33,30 @@ var db = {
 	}
 };
 
-// require the package and pass the db connection config as a 
-// property of an object
-var factory = require('bookshelf-factory')({ db: db });
+// require the package passing the config
+var factory = require('bookshelf-factory')(config);
+
+```
+
+
+# Basic Example
+---
+##### JavaScript
+```js
+// create a database connection config
+var config = {
+	"client": "mysql",
+	"connection": {
+		"host": "127.0.0.1",
+		"user": "db",
+		"password": "password",
+		"database": "test",
+		"charset": "utf8"
+	}
+};
+
+// require the package and pass the db connection config
+var factory = require('bookshelf-factory')(config);
 
 // define a schema in schemer format
 // in this example survivor.id has the views extended property that defines
@@ -182,6 +210,12 @@ var schema = {
 # Extending bookshelf model
 ---
 bookshelf.js allows you to extend its models with protoProps and classProperties (see bookshelf.js extend documentation). bookshelf-factory also allows you to provide this in the schema definition with the following properties
+
+<br>
+
+*note: by default bookshelf-factory already extends idAttribute and tableName for you, along with determining withRelated for each model*
+
+
 * **extendProto** (gets passed as the protoProps argument in bookshelf.Model.extend())
   * object of properties and their associated values
 * **extendClass** (gets passed as the classProperties argument in bookshelf.Model.extend())
@@ -189,23 +223,30 @@ bookshelf.js allows you to extend its models with protoProps and classProperties
 
 
 
-# .getResources
+# .getResources([options])
 ---
-.getResources is a function added to every model created that combines all of the functionality of bookshelf-factory. The function takes an object as its argument. If the argument is not provided all resources in the model will be returned unfiltered. There are no required arguments
+.getResources is a function added to every model created that combines all of the functionality of bookshelf-factory. The function takes the same arguments as fetchAll because all its really doing is calling fetchAll with the generated relations and then removing any properties that are not part of the view
 
-##### Argument format
-```js
-var args = {
-    view: <the view name>,
-    query: <a function that uses bookshelf's query builder>,
-    where: <an object with the column and column value>,
-    fetchOpts: <an object containing fetch options>
-};
-```
-As you can see
+<br>
+
+see bookshelf.js documentation on [fetchAll](http://bookshelfjs.org/#Model-fetchAll) for more information on arguments
+
+# .getResource(id, [options])
+---
+.getResource allows you to select a single resource by id. In the background the function is using a where statement to match the id provided with the idAttribute set by the create process. The function takes the same optional options .getResources does
+
+
 # Views
 ---
-Using the schema from the **Basic Example** you can see that the **views** field has been defined as an array of values. This specifies that this field will be part of that view. The caveat is that related properties need to have their parent property included in the view. In the example of the survivor table schema groups is a related field and if we want groups.name to participate in the summary view when getting the survivor model both survivor.groups and groups.name need to have the summary view defined. If we add the summary view to only the groups column in the survivor schema, all properties of groups will participate in the view 
+Using the schema from the **Basic Example** you can see that the **views** field has been defined as an array of values. This specifies that this field will be part of that view. The caveat is that related properties need to have their parent property included in the view. In the example of the survivor table schema groups is a related field and if we want groups.name to participate in the summary view when getting the survivor model both survivor.groups and groups.name need to have the summary view defined. If we add the summary view to only the groups column in the survivor schema, all properties of groups will participate in the view
+
+<br>
+
+to actually use a view, simply chaing the view() function before any fetchAll or getResource/getResources functions
+
+<br>
+
+the view takes the name of the view as its argument. If no arguments are specified, all properties will be returned
 
 ##### Example
 ```js
@@ -215,9 +256,9 @@ Using the schema from the **Basic Example** you can see that the **views** field
 var models = factory.create(schema);
 
 // forge the model and get all of its resources
-models.survivor.forge().getResources({
-    view: 'summary'
-}).then(function(results) {
+models.survivor.forge()
+.view('summary')
+.getResources().then(function(results) {
 
     // pretty print the results to the console
     console.log(JSON.stringify(results, null, ' '));
@@ -264,9 +305,9 @@ Notice that the id field has been removed from the group objects
 ```
 
 
-# Plugging into bookshelf's query builder
+# Using bookshelf.js chainable functions
 ---
-Using the .getResources function, set the **query** argument to a bookshelf query builder function
+The models created by bookshelf-forge are no different from models you would create normally except that they have a few functions and properties automatically created for you. Because of this approach, you can use all of the normal chainable functions you would in bookshelf.js
 
 ##### Example to return 1 result using the query builder
 ```js
@@ -276,12 +317,13 @@ Using the .getResources function, set the **query** argument to a bookshelf quer
 var models = factory.create(schema);
 
 // forge the model and get all of its resources
-models.survivor.forge().getResources({
-    view: 'summary',
-    query: function(qb) {
-        qb.limit(1)
-    }
-}).then(function(results) {
+models.survivor.forge()
+.view('summary')
+.query(function(qb) {
+    qb.limit(1)
+})
+.where({station_id: 10})
+.getResources().then(function(results) {
 
     // pretty print the results to the console
     console.log(JSON.stringify(results, null, ' '));
@@ -291,19 +333,32 @@ models.survivor.forge().getResources({
 ```js
 [
  {
-  "id": 1,
-  "name": "Hugo Reyes",
+  "sid": 12,
+  "name": "Charlie Pace",
+  "groups": [
+   {
+    "name": "castaways"
+   }
+  ],
+  "station": {
+   "id": 10,
+   "name": "Lamp Post"
+  }
+ },
+ {
+  "sid": 13,
+  "name": "Libby Smith",
   "groups": [
    {
     "name": "castaways"
    },
    {
-    "name": "oceanic6"
+    "name": "tailies"
    }
   ],
   "station": {
-   "id": 1,
-   "name": "Flame"
+   "id": 10,
+   "name": "Lamp Post"
   }
  }
 ]
