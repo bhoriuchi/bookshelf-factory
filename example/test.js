@@ -12,13 +12,13 @@ var config = {
 };
 
 
-
-
-
 // import the modules
 var factory   = require('../lib/factory')(config);
-var schema    = require('./schema')(factory.schemer.constants);
+var schema    = require('./sample-schema')(factory.schemer.constants);
 var data      = require('./sample-data');
+
+// validate the schema
+schema = factory.prepareSchema(schema) || {};
 
 
 // drop the schema

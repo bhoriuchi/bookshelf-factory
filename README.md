@@ -198,8 +198,8 @@ var schema = {
         name: {type: c.type.string, size: 200},
         groups: {
             belongsToMany: 'group', 
-            foreignKey: 'group_id', 
-            otherKey: 'survivor_id', 
+            foreignKey: 'survivor_id', 
+            otherKey: 'group_id', 
             junction: 'group_survivor'
         },
         station: {belongsTo: 'station', foreignKey: 'id'}
