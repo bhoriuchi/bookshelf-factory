@@ -19,7 +19,7 @@ module.exports = function(c) {
         actor: {
             id: {type: c.type.integer, primary: true, increments: true},
             name: {type: c.type.string, size: 200},
-            character: {hasOne: 'survivor', foreignKey: 'id'}
+            character: {hasOne: 'survivor', nullable: true}
         }
     };
 };

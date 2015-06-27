@@ -10,6 +10,7 @@ bookshelf-factory is a tool that extends the knex-schemer schema definition form
   * added chainable view() function
   * added getResource() function that intelligently gets the resource based on its primary key using a specified id
   * added automatic idAttribute assignment based on primary and composite keys
+  * added prepareSchema function which will create junction tables and set foreignKey values for you automatically given a relationship
   * updated to version **0.1.1**
 
 # Install
@@ -364,8 +365,141 @@ models.survivor.forge()
 ]
 ```
 
+# .prepareSchema(schema)
+---
+The prepareSchema function allows you to off-load some of the work behind figuring out where to put foreignKeys, what to name them, and what junction tables to create. Simply define your relationship type.
 
+##### Example
+```js
+// define a schema with relationships
+var schema = {
+    survivor: {
+        sid: {type: c.type.integer, primary: true, increments: true, views: ['summary']},
+        name: {type: c.type.string, size: 200, views: ['summary']},
+        groups: {belongsToMany: 'group', views: ['summary']},
+        station_id: {type: c.type.integer},
+        station: {belongsTo: 'station', views: ['summary']}
+    },
+    group: {
+        id: {type: c.type.integer, primary: true, increments: true},
+        name: {type: c.type.string, size: 100, views: ['summary']},
+    },
+    station: {
+        id: {type: c.type.integer, primary: true, increments: true},
+        name: {type: c.type.string, size: 100}
+    },
+    actor: {
+        id: {type: c.type.integer, primary: true, increments: true},
+        name: {type: c.type.string, size: 200},
+        character: {hasOne: 'survivor', nullable: true}
+    }
+};
 
+// prepare the schema
+schema = factory.prepareSchema(schema);
+
+// print the prepared schema
+console.log(JSON.stringify(schema, null, '  '));
+
+```
+
+##### Output
+```js
+{
+  "survivor": {
+    "sid": {
+      "type": "integer",
+      "primary": true,
+      "increments": true,
+      "views": [
+        "summary"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "size": 200,
+      "views": [
+        "summary"
+      ]
+    },
+    "groups": {
+      "belongsToMany": "group",
+      "views": [
+        "summary"
+      ],
+      "foreignKey": "survivor_sid",
+      "junction": "group_survivor",
+      "otherKey": "group_id"
+    },
+    "station_id": {
+      "type": "integer"
+    },
+    "station": {
+      "belongsTo": "station",
+      "views": [
+        "summary"
+      ],
+      "foreignKey": "station_id"
+    },
+    "actor_id": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "group": {
+    "id": {
+      "type": "integer",
+      "primary": true,
+      "increments": true
+    },
+    "name": {
+      "type": "string",
+      "size": 100,
+      "views": [
+        "summary"
+      ]
+    }
+  },
+  "station": {
+    "id": {
+      "type": "integer",
+      "primary": true,
+      "increments": true
+    },
+    "name": {
+      "type": "string",
+      "size": 100
+    }
+  },
+  "actor": {
+    "id": {
+      "type": "integer",
+      "primary": true,
+      "increments": true
+    },
+    "name": {
+      "type": "string",
+      "size": 200
+    },
+    "character": {
+      "hasOne": "survivor",
+      "nullable": true,
+      "foreignKey": "actor_id"
+    }
+  },
+  "group_survivor": {
+    "survivor_sid": {
+      "type": "integer"
+    },
+    "group_id": {
+      "type": "integer"
+    }
+  }
+}
+
+```
+
+You can see that the junction table group_survivor was created along with several properties added to the schema for each model in a relationship.
 
 
 # Tools

@@ -20,6 +20,7 @@ var data      = require('./sample-data');
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
 
+//console.log(JSON.stringify(schema, null, '  '));
 
 // drop the schema
 factory.schemer.drop(schema).then(function() {
@@ -31,21 +32,17 @@ factory.schemer.drop(schema).then(function() {
 			
 			// forge all of the model definitions
 			var models = factory.create(schema);
-			
-			var limit1 = function(qb) {
-				qb.limit(2);
-			};
+
+			/*
+			new models.actor().saveResource({name: 'John Doe'}).then(function(model){
+				console.log(model);
+				process.exit();
+			});
+			*/
 
 			
-			var m = models.survivor.forge();
-			/*m.getResource();
-			m.getResources({
-				view: 'summary',
-				query: function(qb) {
-					qb.limit(1);
-				}
-			})*/
-			m.view('summary')
+			models.survivor.forge()
+			.view('summary')
 			.query(function(qb) {
 				qb.limit(2);
 			})
@@ -58,6 +55,7 @@ factory.schemer.drop(schema).then(function() {
 				process.exit();
 				
 			});
+			
 		});
 	});
 });

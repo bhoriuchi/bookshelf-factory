@@ -1,8 +1,8 @@
 module.exports = {
 		survivor: [
-            { sid: 1, name: "Hugo Reyes", station_id: 1 },
+            { sid: 1, name: "Hugo Reyes", station_id: 1, actor_id: 2 },
             { sid: 2, name: "Sayid Jarrah", station_id: 2 },
-            { sid: 3, name: "Jack Shephard", station_id: 1 },
+            { sid: 3, name: "Jack Shephard", station_id: 1, actor_id: 1 },
             { sid: 4, name: "James Ford", station_id: 3 },
             { sid: 5, name: "Jin Kwon", station_id: 4 },
             { sid: 6, name: "Sun Kwon", station_id: 5 },
@@ -54,5 +54,9 @@ module.exports = {
             { id: 8, name: "Looking Glass" },
             { id: 9, name: "Tempest" },
             { id: 10, name: "Lamp Post" }
+        ],
+        actor: [
+            { id: 1, name: 'Matthew Fox'},
+            { id: 2, name: 'Jorge Garcia' }
         ]
 };
