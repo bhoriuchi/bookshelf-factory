@@ -243,7 +243,7 @@ Using the schema from the **Basic Example** you can see that the **views** field
 
 <br>
 
-to actually use a view, simply chaing the view() function before any fetchAll or getResource/getResources functions
+to actually use a view, simply chain the view() function before any fetchAll or getResource/getResources functions
 
 <br>
 
@@ -321,7 +321,7 @@ var models = factory.create(schema);
 models.survivor.forge()
 .view('summary')
 .query(function(qb) {
-    qb.limit(1)
+    qb.limit(2)
 })
 .where({station_id: 10})
 .getResources().then(function(results) {
