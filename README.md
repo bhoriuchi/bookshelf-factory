@@ -224,15 +224,15 @@ bookshelf.js allows you to extend its models with protoProps and classProperties
 
 
 
-# .getResources([options])
+# .getResources([fetchOptions], [jsonOptions])
 ---
-.getResources is a function added to every model created that combines all of the functionality of bookshelf-factory. The function takes the same arguments as fetchAll because all its really doing is calling fetchAll with the generated relations and then removing any properties that are not part of the view
+.getResources is a function added to every model created that combines all of the functionality of bookshelf-factory. The function takes the same arguments as fetchAll because all its really doing is calling fetchAll with the generated relations and then removing any properties that are not part of the view. By default jsonOptions are {omitPivot: true}
 
 <br>
 
 see bookshelf.js documentation on [fetchAll](http://bookshelfjs.org/#Model-fetchAll) for more information on arguments
 
-# .getResource(id, [options])
+# .getResource(id, [fetchOptions], [jsonOptions])
 ---
 .getResource allows you to select a single resource by id. In the background the function is using a where statement to match the id provided with the idAttribute set by the create process. The function takes the same optional options .getResources does
 
@@ -308,7 +308,7 @@ Notice that the id field has been removed from the group objects
 
 # Using bookshelf.js chainable functions
 ---
-The models created by bookshelf-forge are no different from models you would create normally except that they have a few functions and properties automatically created for you. Because of this approach, you can use all of the normal chainable functions you would in bookshelf.js
+The models created by bookshelf-factory are no different from models you would create normally except that they have a few functions and properties automatically created for you. Because of this approach, you can use all of the normal chain-able functions you would in bookshelf.js
 
 ##### Example to return 1 result using the query builder
 ```js

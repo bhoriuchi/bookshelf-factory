@@ -1,6 +1,6 @@
 {
   "name": "bookshelf-factory",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Create all models along with relationships using the knex-schemer schema definition format",
   "main": "lib/factory.js",
   "repository": {

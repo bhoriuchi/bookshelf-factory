@@ -42,9 +42,8 @@ factory.schemer.drop(schema).then(function() {
 
 			
 			models.survivor.forge()
-			.view('summary')
 			.query(function(qb) {
-				qb.limit(2);
+				qb.limit(1);
 			})
 			.where({station_id: 10})
 			.getResources()
