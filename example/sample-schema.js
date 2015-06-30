@@ -6,7 +6,8 @@ module.exports = function(c) {
             name: {type: c.type.string, size: 200, views: ['summary']},
             groups: {belongsToMany: 'group', views: ['summary']},
             station_id: {type: c.type.integer},
-            station: {belongsTo: 'station', views: ['summary']}
+            station: {belongsTo: 'station', views: ['summary']},
+            notes: {type: c.type.string, size: 200, nullable: true, views: ['summary']}
         },
         group: {
             id: {type: c.type.integer, primary: true, increments: true},
@@ -19,7 +20,7 @@ module.exports = function(c) {
         actor: {
             id: {type: c.type.integer, primary: true, increments: true},
             name: {type: c.type.string, size: 200},
-            character: {hasOne: 'survivor', nullable: true}
+            character: {hasOne: 'survivor'}
         }
     };
 };

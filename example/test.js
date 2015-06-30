@@ -16,7 +16,7 @@ var config = {
 var factory   = require('../lib/factory')(config);
 var schema    = require('./sample-schema')(factory.schemer.constants);
 var data      = require('./sample-data');
-
+var models;
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
 
@@ -31,33 +31,33 @@ factory.schemer.drop(schema).then(function() {
 		return factory.schemer.convertAndLoad(data, schema).then(function() {
 			
 			// forge all of the model definitions
-			var models = factory.create(schema);
+			models = factory.create(schema);
 
-			/*
-			new models.actor().saveResource({name: 'John Doe'}).then(function(model){
-				console.log(model);
-				process.exit();
-			});
-			*/
-
-			
-			models.survivor.forge()
+			// create a new model
+			return models.survivor.forge()
 			.query(function(qb) {
 				qb.limit(1);
 			})
-			.where({station_id: 10})
-			.getResources()
-			.then(function(results) {
-
-				// pretty print the results
-				console.log(JSON.stringify(results, null, ' '));
-				process.exit();
-				
-			});
+			.view(['sid', 'name', 'station.name'])
+			.pretty()
+			.getResource(12);
 			
 		});
 	});
+})
+.then(function(results) {
+	
+	console.log(results);
+	
+	models.survivor.forge().view('summary').pretty()
+	.saveResource({sid: 1, notes: 'added', name: '22222'}).then(function(results) {
+		console.log(results);
+		process.exit();
+	});
 });
+
+
+
 
 
 

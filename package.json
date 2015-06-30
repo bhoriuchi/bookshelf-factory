@@ -27,7 +27,7 @@
   "dependencies": {
     "knex": "^0.8.6",
     "bluebird": "^2.9.27",
-    "knex-schemer": "^0.1.8",
+    "knex-schemer": "^0.1.9",
     "bookshelf": "^0.8.1",
     "dotprune": "^0.1.0",
     "lodash": "^3.9.3"

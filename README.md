@@ -5,6 +5,8 @@
 bookshelf-factory is a tool that extends the knex-schemer schema definition format to produce an object containing models for each table defined. Using this tool you can define relationships between models as well as views for specific data. The tool also takes care of withRelated for you and provides a custom getResources function that allows you to combine all of the functionality into 1 function while still allowing you to use knex query functions
 
 # Whats New?
+* ??/??/2015
+  * added the ability to specify an array of properties to use as a view filter
 * 6/26/2015
   * Realized that chaining the view and other functions would be better than passing them as arguments, so the getResources function now only takes the parameters you would normally pass to the bookshelf.js fetch functions
   * added chainable view() function
@@ -237,7 +239,7 @@ see bookshelf.js documentation on [fetchAll](http://bookshelfjs.org/#Model-fetch
 .getResource allows you to select a single resource by id. In the background the function is using a where statement to match the id provided with the idAttribute set by the create process. The function takes the same optional options .getResources does
 
 
-# Views
+# .view([viewName | propertyArray])
 ---
 Using the schema from the **Basic Example** you can see that the **views** field has been defined as an array of values. This specifies that this field will be part of that view. The caveat is that related properties need to have their parent property included in the view. In the example of the survivor table schema groups is a related field and if we want groups.name to participate in the summary view when getting the survivor model both survivor.groups and groups.name need to have the summary view defined. If we add the summary view to only the groups column in the survivor schema, all properties of groups will participate in the view
 
@@ -247,9 +249,9 @@ to actually use a view, simply chain the view() function before any fetchAll or 
 
 <br>
 
-the view takes the name of the view as its argument. If no arguments are specified, all properties will be returned
+the view takes the name of the view as its argument or a list of properties. If no arguments are specified, all properties will be returned
 
-##### Example
+##### Example using view name
 ```js
 // using the schema from Basic Example
 
@@ -300,6 +302,36 @@ Notice that the id field has been removed from the group objects
   "station": {
    "id": 2,
    "name": "Arrow"
+  }
+ }
+]
+```
+##### Example using property array
+```js
+// using the schema from Basic Example
+
+// call the create function to create all the models
+var models = factory.create(schema);
+
+// forge the model and get all of its resources
+models.survivor.forge()
+.view(['sid', 'name', 'station.name'])
+.getResource(12).then(function(results) {
+
+    // pretty print the results to the console
+    console.log(JSON.stringify(results, null, ' '));
+}); 
+
+```
+```
+##### Output
+```js
+[
+ {
+  "sid": 12,
+  "name": "Charlie Pace",
+  "station": {
+   "name": "Lamp Post"
   }
  }
 ]
