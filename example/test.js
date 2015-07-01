@@ -40,7 +40,7 @@ factory.schemer.drop(schema).then(function() {
 			})
 			.view(['sid', 'name', 'station.name'])
 			.pretty()
-			.getResource(12);
+			.getResource(1);
 			
 		});
 	});
@@ -49,11 +49,19 @@ factory.schemer.drop(schema).then(function() {
 	
 	console.log(results);
 	
-	models.survivor.forge().view('summary').pretty()
-	.saveResource({sid: 1, notes: 'added', name: '22222'}).then(function(results) {
+	return models.survivor.forge().view('summary').pretty()
+	.saveResource({name: 'Jacob', station_id: 1})
+	.then(function(results) {
 		console.log(results);
-		process.exit();
 	});
+})
+.then(function() {
+	return models.survivor.forge().deleteResource(1).then(function(results) {
+		console.log(results);
+	});
+})
+.then(function() {
+	process.exit();
 });
 
 
