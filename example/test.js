@@ -19,7 +19,9 @@ var models;
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
 
+//console.log('------ Start Schema ---');
 //console.log(JSON.stringify(schema, null, '  '));
+//console.log('------ End Schema -----');
 
 // drop the schema
 factory.schemer.drop(schema).then(function() {
@@ -46,20 +48,39 @@ factory.schemer.drop(schema).then(function() {
 })
 .then(function(results) {
 	
+	// print query result for survivor limit 1
+	console.log('--------------------------------');
+	console.log('Example 1: Request Limit 1');
+	console.log(' ');
 	console.log(results);
+	console.log('--------------------------------');
 	
+	// save a new survivor
 	return models.survivor.forge().view('summary').pretty()
-	.saveResource({name: 'Jacob', station_id: 1})
+	.saveResource({name: 'Jacob', station_id: 1, groups: [1, 2]})
 	.then(function(results) {
+		
+		console.log('--------------------------------');
+		console.log('Example 2: Save a new Resource');
+		console.log(' ');
 		console.log(results);
+		console.log('--------------------------------');
 	});
 })
 .then(function() {
+	
+	// delete a survivor
 	return models.survivor.forge().deleteResource(1).then(function(results) {
+		console.log('--------------------------------');
+		console.log('Example 3: Delete Resource');
+		console.log(' ');
 		console.log(results);
+		console.log('--------------------------------');
 	});
 })
 .then(function() {
+	
+	// exit the app
 	process.exit();
 });
 
