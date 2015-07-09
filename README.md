@@ -52,6 +52,7 @@ var config = {
 
 // require the package and pass the db connection config
 var factory = require('bookshelf-factory')(config);
+var type    = factory.schemer.constants.type;
 
 // define a schema in schemer format
 // in this example survivor.id has the views extended property that defines
@@ -59,23 +60,23 @@ var factory = require('bookshelf-factory')(config);
 // property belongsToMany and specifies the model to use for the relationship
 var schema = {
         survivor: {
-            id: {type: c.type.integer, primary: true, increments: true, views: ['summary']},
-            name: {type: c.type.string, size: 200, views: ['summary']},
+            id: {type: type.integer, primary: true, increments: true, views: ['summary']},
+            name: {type: type.string, size: 200, views: ['summary']},
             groups: {belongsToMany: 'group', views: ['summary']},
-            station_id: {type: c.type.integer},
+            station_id: {type: type.integer},
             station: {belongsTo: 'station', views: ['summary']}
         },
         group: {
-            id: {type: c.type.integer, primary: true, increments: true},
-            name: {type: c.type.string, size: 100, views: ['summary']},
+            id: {type: type.integer, primary: true, increments: true},
+            name: {type: type.string, size: 100, views: ['summary']},
         },
         group_survivor: {
-            survivor_id: {type: c.type.integer, primary: true},
-            group_id: {type: c.type.integer, primary: true}
+            survivor_id: {type: type.integer, primary: true},
+            group_id: {type: type.integer, primary: true}
         },
         station: {
-            id: {type: c.type.integer, primary: true, increments: true},
-            name: {type: c.type.string, size: 100}
+            id: {type: type.integer, primary: true, increments: true},
+            name: {type: type.string, size: 100}
         }
     };
 };
