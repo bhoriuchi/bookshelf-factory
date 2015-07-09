@@ -57,7 +57,7 @@ factory.schemer.drop(schema).then(function() {
 	
 	// save a new survivor
 	return models.survivor.forge().view('summary').pretty()
-	.saveResource({name: 'Jacob', station_id: 1, groups: [1, 2]})
+	.saveResource({name: 'Jacob', station_id: 1, groups: [1, 2], ignore1: 'x'})
 	.then(function(results) {
 		
 		console.log('--------------------------------');
@@ -65,6 +65,18 @@ factory.schemer.drop(schema).then(function() {
 		console.log(' ');
 		console.log(results);
 		console.log('--------------------------------');
+	})
+	.then(function() {
+		return models.survivor.forge().view('summary').pretty()
+		.saveResource({sid: 15, station_id: 2, notes: 'station updated', groups:[4], _ignore2: true, station: 3})
+		.then(function(results) {
+			
+			console.log('--------------------------------');
+			console.log('Example 3: Update a new Resource');
+			console.log(' ');
+			console.log(results);
+			console.log('--------------------------------');
+		});
 	});
 })
 .then(function() {
@@ -72,7 +84,7 @@ factory.schemer.drop(schema).then(function() {
 	// delete a survivor
 	return models.survivor.forge().deleteResource(1).then(function(results) {
 		console.log('--------------------------------');
-		console.log('Example 3: Delete Resource');
+		console.log('Example 4: Delete Resource');
 		console.log(' ');
 		console.log(results);
 		console.log('--------------------------------');

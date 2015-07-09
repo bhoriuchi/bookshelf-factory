@@ -7,7 +7,9 @@ module.exports = function(c) {
             groups: {belongsToMany: 'group', views: ['summary']},
             station_id: {type: c.type.integer},
             station: {belongsTo: 'station', nullable: true, views: ['summary']},
-            notes: {type: c.type.string, size: 200, nullable: true, defaultTo: 'default notes', views: ['summary']}
+            notes: {type: c.type.string, size: 200, nullable: true, defaultTo: 'default notes', views: ['summary']},
+            ignore1: {ignore: true},
+            _ignore2: {value: false}
         },
         group: {
             id: {type: c.type.integer, primary: true, increments: true},
