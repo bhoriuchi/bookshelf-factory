@@ -68,7 +68,7 @@ factory.schemer.drop(schema).then(function() {
 	})
 	.then(function() {
 		return models.survivor.forge().view('summary').pretty()
-		.saveResource({sid: 15, station_id: 2, notes: 'station updated', groups:[4], _ignore2: true, station: 3})
+		.saveResource({sid: 15, station_id: 2, notes: 'station updated', groups:[4, 500], _ignore2: true, station: 3})
 		.then(function(results) {
 			
 			console.log('--------------------------------');
