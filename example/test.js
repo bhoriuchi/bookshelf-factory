@@ -77,6 +77,19 @@ factory.schemer.drop(schema).then(function() {
 			console.log(results);
 			console.log('--------------------------------');
 		});
+	})
+	.then(function() {
+		// save a new actor
+		return models.actor.forge().view().pretty()
+		.saveResource({name: 'Evangeline Lilly', character: 7})
+		.then(function(results) {
+			
+			console.log('--------------------------------');
+			console.log('Example 4: Save a new Actor');
+			console.log(' ');
+			console.log(results);
+			console.log('--------------------------------');
+		});
 	});
 })
 .then(function() {
@@ -84,7 +97,7 @@ factory.schemer.drop(schema).then(function() {
 	// delete a survivor
 	return models.survivor.forge().deleteResource(1).then(function(results) {
 		console.log('--------------------------------');
-		console.log('Example 4: Delete Resource');
+		console.log('Example 5: Delete Resource');
 		console.log(' ');
 		console.log(results);
 		console.log('--------------------------------');
