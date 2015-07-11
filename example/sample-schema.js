@@ -22,7 +22,12 @@ module.exports = function(c) {
         actor: {
             id: {type: c.type.integer, primary: true, increments: true},
             name: {type: c.type.string, size: 200},
-            character: {hasOne: 'survivor', nullable: true}
+            character: {hasOne: 'survivor', nullable: true},
+            nicknames: {hasMany: 'nickname', nullable: true}
+        },
+        nickname: {
+            id: {type: c.type.integer, primary: true, increments: true},
+            name: {type: c.type.string, size: 200}
         }
     };
 };

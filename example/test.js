@@ -57,7 +57,12 @@ factory.schemer.drop(schema).then(function() {
 	
 	// save a new survivor
 	return models.survivor.forge().view('summary').pretty()
-	.saveResource({name: 'Jacob', station_id: 1, groups: [1, 2], ignore1: 'x'})
+	.saveResource({
+		name: 'Jacob',
+		station_id: 1,
+		groups: [1, 2],
+		ignore1: 'x'
+	})
 	.then(function(results) {
 		
 		console.log('--------------------------------');
@@ -68,7 +73,14 @@ factory.schemer.drop(schema).then(function() {
 	})
 	.then(function() {
 		return models.survivor.forge().view('summary').pretty()
-		.saveResource({sid: 15, station_id: 2, notes: 'station updated', groups:[4, 500], _ignore2: true, station: 3})
+		.saveResource({
+			sid: 15,
+			station_id: 2,
+			notes: 'station updated',
+			groups:[4],
+			_ignore2: true,
+			station: 3
+		})
 		.then(function(results) {
 			
 			console.log('--------------------------------');
@@ -81,7 +93,11 @@ factory.schemer.drop(schema).then(function() {
 	.then(function() {
 		// save a new actor
 		return models.actor.forge().view().pretty()
-		.saveResource({name: 'Evangeline Lilly', character: 7})
+		.saveResource({
+			name: 'Evangeline Lilly',
+			character: 7,
+			nicknames: [8, 9, 10]
+		})
 		.then(function(results) {
 			
 			console.log('--------------------------------');

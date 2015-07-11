@@ -58,5 +58,20 @@ module.exports = {
         actor: [
             { id: 1, name: 'Matthew Fox'},
             { id: 2, name: 'Jorge Garcia' }
+        ],
+        nickname: [
+            { id: 1, name: "Lardo" },
+            { id: 2, name: "Pork Pie"},
+            { id: 3, name: "Hoss"},
+            { id: 4, name: "Rerun"},
+            { id: 5, name: "Hammo"},
+            { id: 6, name: "Snuffy"},
+            { id: 7, name: "Montezuma"},
+            { id: 8, name: "Freckles"},
+            { id: 9, name: "Sheena"},
+            { id: 10, name: "Thelma"},
+            { id: 11, name: "Shortcake"},
+            { id: 12, name: "Sweetcheeks"},
+            { id: 13, name: "Puddin"}
         ]
 };
