@@ -106,12 +106,24 @@ factory.schemer.drop(schema).then(function() {
 			console.log(results);
 			console.log('--------------------------------');
 		});
+	})
+	.then(function() {
+		// save a new actor
+		return models.survivor.forge().deleteResource(7)
+		.then(function(results) {
+			
+			console.log('--------------------------------');
+			console.log('Deleting Kate');
+			console.log(' ');
+			console.log(results);
+			console.log('--------------------------------');
+		});
 	});
 })
 .then(function() {
 	
 	// delete a survivor
-	return models.survivor.forge().deleteResource(1).then(function(results) {
+	return models.actor.forge().deleteResource(3, {force: true}).then(function(results) {
 		console.log('--------------------------------');
 		console.log('Example 5: Delete Resource');
 		console.log(' ');
