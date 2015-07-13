@@ -39,9 +39,9 @@ factory.schemer.drop(schema).then(function() {
 			.query(function(qb) {
 				qb.limit(1);
 			})
-			.view(['sid', 'name', 'station.name'])
+			.view()
 			.pretty()
-			.getResource(1);
+			.getResources();
 			
 		});
 	});

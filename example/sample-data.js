@@ -16,7 +16,7 @@ module.exports = {
             { sid: 14, name: "Anna Lucia Cortez", station_id: 10 }
         ],
         group: [
-            { id: 1, name: "castaways" },
+            { id: 1, name: "castaways"},
             { id: 2, name: "tailies" },
             { id: 3, name: "others" },
             { id: 4, name: "oceanic6" }
@@ -44,10 +44,10 @@ module.exports = {
             { survivor_sid: 14, group_id: 2 }
         ],
         station: [
-            { id: 1, name: "Flame" },
-            { id: 2, name: "Arrow" },
-            { id: 3, name: "Pearl" },
-            { id: 4, name: "Swan" },
+            { id: 1, name: "Flame", group_id: 1 },
+            { id: 2, name: "Arrow", group_id: 2 },
+            { id: 3, name: "Pearl", group_id: 3 },
+            { id: 4, name: "Swan", group_id: 4 },
             { id: 5, name: "Hydra" },
             { id: 6, name: "Orchid" },
             { id: 7, name: "Staff" },
