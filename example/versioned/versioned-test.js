@@ -42,16 +42,29 @@ factory.schemer.drop(schema).then(function() {
 	return models.list.forge()
 	.view()
 	.pretty()
-	.saveResource({ name: 'brandens list' });
+	.saveResource({ name: 'brandens list', description: 'my gorcery list', use_current: false });
 	//.getResource(1, {version: 2});
 	//.getResources({version: 1});
 	//.getResources({version: '2015-07-01T00:30:09Z'});
-			
 })
 .then(function(results) {
 	console.log(results);
 })
 .then(function() {
+	
+	// create a new model
+	return models.list.forge()
+	.view()
+	.pretty()
+	.getResources({version: 1})
+	.then(function(results) {
+		console.log(results);
+	});
+	//.getResources({version: '2015-07-01T00:30:09Z'});
+})
+.then(function() {
+	
+	models.list.forge().publish();
 	
 	// exit the app
 	process.exit();
