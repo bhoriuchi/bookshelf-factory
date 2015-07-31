@@ -29,26 +29,27 @@ factory.schemer.drop(schema).then(function() {
 	// create a database
 	return factory.schemer.sync(schema).then(function() {
 		// load the data
-		return factory.schemer.convertAndLoad(data, schema).then(function() {
-			
-			// forge all of the model definitions
-			models = factory.create(schema);
-
-			// create a new model
-			return models.list.forge()
-			.view()
-			.pretty()
-			.saveResource({
-				blah: 1
-			});
-			//.getResource(1, {version: 2});
-			//.getResources({version: '2015-07-01T00:30:09Z'});
-			
-		});
+		return factory.schemer.convertAndLoad(data, schema);
+		//return factory.schemer.loadData(data, schema);
 	});
 })
+.then(function() {
+			
+	// forge all of the model definitions
+	models = factory.create(schema);
+
+	// create a new model
+	return models.list.forge()
+	.view()
+	.pretty()
+	.saveResource({ name: 'brandens list' });
+	//.getResource(1, {version: 2});
+	//.getResources({version: 1});
+	//.getResources({version: '2015-07-01T00:30:09Z'});
+			
+})
 .then(function(results) {
-	console.log(JSON.stringify(results, null, '  '));
+	console.log(results);
 })
 .then(function() {
 	
