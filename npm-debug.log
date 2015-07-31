@@ -1,0 +1,89 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.13.3
+3 info using node@v0.12.2
+4 verbose node symlink /usr/local/bin/node
+5 verbose readDependencies loading dependencies from /Users/Branden/git/bookshelf-factory/package.json
+6 verbose install where, deps [ '/Users/Branden/git/bookshelf-factory',
+6 verbose install   [ 'knex',
+6 verbose install     'bluebird',
+6 verbose install     'knex-schemer',
+6 verbose install     'bookshelf',
+6 verbose install     'dotprune',
+6 verbose install     'lodash',
+6 verbose install     'mysql' ] ]
+7 verbose install where, peers [ '/Users/Branden/git/bookshelf-factory', [] ]
+8 verbose installManyTop reading for lifecycle /Users/Branden/git/bookshelf-factory/package.json
+9 info preinstall bookshelf-factory@0.1.3
+10 verbose installManyTop reading scoped package data from /Users/Branden/git/bookshelf-factory/node_modules/bluebird/package.json
+11 verbose installManyTop reading scoped package data from /Users/Branden/git/bookshelf-factory/node_modules/bookshelf/package.json
+12 verbose installManyTop reading scoped package data from /Users/Branden/git/bookshelf-factory/node_modules/dotprune/package.json
+13 verbose installManyTop reading scoped package data from /Users/Branden/git/bookshelf-factory/node_modules/knex/package.json
+14 verbose installManyTop reading scoped package data from /Users/Branden/git/bookshelf-factory/node_modules/knex-schemer/package.json
+15 verbose installManyTop reading scoped package data from /Users/Branden/git/bookshelf-factory/node_modules/lodash/package.json
+16 verbose installManyTop reading scoped package data from /Users/Branden/git/bookshelf-factory/node_modules/mysql/package.json
+17 verbose readDependencies loading dependencies from /Users/Branden/git/bookshelf-factory/package.json
+18 verbose targetResolver reading package data from /Users/Branden/git/bookshelf-factory/node_modules/bluebird/package.json
+19 verbose targetResolver reading package data from /Users/Branden/git/bookshelf-factory/node_modules/bookshelf/package.json
+20 verbose targetResolver reading package data from /Users/Branden/git/bookshelf-factory/node_modules/dotprune/package.json
+21 verbose targetResolver reading package data from /Users/Branden/git/bookshelf-factory/node_modules/knex/package.json
+22 verbose targetResolver reading package data from /Users/Branden/git/bookshelf-factory/node_modules/knex-schemer/package.json
+23 verbose targetResolver reading package data from /Users/Branden/git/bookshelf-factory/node_modules/lodash/package.json
+24 verbose targetResolver reading package data from /Users/Branden/git/bookshelf-factory/node_modules/mysql/package.json
+25 verbose targetResolver reading package data from /Users/Branden/git/bookshelf-factory/node_modules/.bin/knex/package.json
+26 verbose already installed skipping lodash@^3.9.3 /Users/Branden/git/bookshelf-factory
+27 verbose already installed skipping mysql@^2.7.0 /Users/Branden/git/bookshelf-factory
+28 verbose already installed skipping knex@^0.8.6 /Users/Branden/git/bookshelf-factory
+29 verbose already installed skipping bluebird@^2.9.27 /Users/Branden/git/bookshelf-factory
+30 silly cache add args [ 'knex-schemer@git+https://github.com/bhoriuchi/knex-schemer.git#master',
+30 silly cache add   null ]
+31 verbose cache add spec knex-schemer@git+https://github.com/bhoriuchi/knex-schemer.git#master
+32 verbose already installed skipping bookshelf@^0.8.1 /Users/Branden/git/bookshelf-factory
+33 verbose already installed skipping dotprune@^0.1.0 /Users/Branden/git/bookshelf-factory
+34 silly cache add parsed spec { raw: 'knex-schemer@git+https://github.com/bhoriuchi/knex-schemer.git#master',
+34 silly cache add   scope: null,
+34 silly cache add   name: 'knex-schemer',
+34 silly cache add   rawSpec: 'git+https://github.com/bhoriuchi/knex-schemer.git#master',
+34 silly cache add   spec: 'git+https://github.com/bhoriuchi/knex-schemer.git#master',
+34 silly cache add   type: 'hosted',
+34 silly cache add   hosted:
+34 silly cache add    { type: 'github',
+34 silly cache add      ssh: 'git@github.com:bhoriuchi/knex-schemer.git#master',
+34 silly cache add      sshUrl: 'git+ssh://git@github.com/bhoriuchi/knex-schemer.git#master',
+34 silly cache add      httpsUrl: 'git+https://github.com/bhoriuchi/knex-schemer.git#master',
+34 silly cache add      gitUrl: 'git://github.com/bhoriuchi/knex-schemer.git#master',
+34 silly cache add      shortcut: 'github:bhoriuchi/knex-schemer#master',
+34 silly cache add      directUrl: 'https://raw.githubusercontent.com/bhoriuchi/knex-schemer/master/package.json' } }
+35 verbose addRemoteGit caching git+https://github.com/bhoriuchi/knex-schemer.git#master
+36 verbose addRemoteGit git+https://github.com/bhoriuchi/knex-schemer.git#master is a repository hosted by github
+37 silly tryClone cloning git+https://github.com/bhoriuchi/knex-schemer.git#master via git+https://github.com/bhoriuchi/knex-schemer.git#master
+38 verbose tryClone https-github-com-bhoriuchi-knex-schemer-git-7a778f26 not in flight; caching
+39 warn addRemoteGit Error: not found: git
+39 warn addRemoteGit     at F (/usr/local/lib/node_modules/npm/node_modules/which/which.js:72:28)
+39 warn addRemoteGit     at E (/usr/local/lib/node_modules/npm/node_modules/which/which.js:75:29)
+39 warn addRemoteGit     at /usr/local/lib/node_modules/npm/node_modules/which/which.js:83:16
+39 warn addRemoteGit     at FSReqWrap.oncomplete (fs.js:95:15)
+39 warn addRemoteGit  git+https://github.com/bhoriuchi/knex-schemer.git#master resetting remote /tmp/npm-501/.npm/_git-remotes/https-github-com-bhoriuchi-knex-schemer-git-7a778f26 because of error: { [Error: not found: git] code: 'ENOGIT' }
+40 info resetRemote resetting /tmp/npm-501/.npm/_git-remotes/https-github-com-bhoriuchi-knex-schemer-git-7a778f26 for git+https://github.com/bhoriuchi/knex-schemer.git#master
+41 silly gentlyRm /tmp/npm-501/.npm/_git-remotes/https-github-com-bhoriuchi-knex-schemer-git-7a778f26 is being purged
+42 verbose gentlyRm don't care about contents; nuking /tmp/npm-501/.npm/_git-remotes/https-github-com-bhoriuchi-knex-schemer-git-7a778f26
+43 silly vacuum-fs purging /tmp/npm-501/.npm/_git-remotes/https-github-com-bhoriuchi-knex-schemer-git-7a778f26
+44 silly vacuum-fs quitting because other entries in /tmp/npm-501/.npm/_git-remotes
+45 error git clone --template=/tmp/npm-501/.npm/_git-remotes/_templates --mirror https://github.com/bhoriuchi/knex-schemer.git /tmp/npm-501/.npm/_git-remotes/https-github-com-bhoriuchi-knex-schemer-git-7a778f26: undefined
+45 error git clone --template=/tmp/npm-501/.npm/_git-remotes/_templates --mirror https://github.com/bhoriuchi/knex-schemer.git /tmp/npm-501/.npm/_git-remotes/https-github-com-bhoriuchi-knex-schemer-git-7a778f26: undefined
+46 verbose stack Error: not found: git
+46 verbose stack     at F (/usr/local/lib/node_modules/npm/node_modules/which/which.js:72:28)
+46 verbose stack     at E (/usr/local/lib/node_modules/npm/node_modules/which/which.js:75:29)
+46 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/which/which.js:83:16
+46 verbose stack     at FSReqWrap.oncomplete (fs.js:95:15)
+47 verbose cwd /Users/Branden/git/bookshelf-factory
+48 error Darwin 14.4.0
+49 error argv "node" "/usr/local/bin/npm" "install"
+50 error node v0.12.2
+51 error npm  v2.13.3
+52 error code ENOGIT
+53 error not found: git
+54 error Failed using git.
+54 error This is most likely not a problem with npm itself.
+54 error Please check if you have git installed and in your PATH.
+55 verbose exit [ 1, true ]
