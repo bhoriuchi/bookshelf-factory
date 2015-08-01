@@ -36,6 +36,12 @@ versioned save
 - set active to false
 
 
+
+
+
+DELETE
+
+
 ** delete versioned model
 
 - check for references to the parent model and delete if none

@@ -42,7 +42,13 @@ factory.schemer.drop(schema).then(function() {
 	return models.list.forge()
 	.view()
 	.pretty()
-	.saveResource({ name: 'brandens list', description: 'my gorcery list', use_current: false });
+	.saveResource({
+		name: 'brandens list',
+		description: 'my gorcery list',
+		use_current: false,
+		change_notes: 'blah blah blah',
+		items: [1,3,5,7]
+	});
 	//.getResource(1, {version: 2});
 	//.getResources({version: 1});
 	//.getResources({version: '2015-07-01T00:30:09Z'});
