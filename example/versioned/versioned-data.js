@@ -13,8 +13,8 @@ module.exports = {
            
         ],
         list: [
-            { id: 1, name: "shopping1"},
-            { id: 2, name: "shopping2"}
+            { id: 1, name: "shopping1", current_version: 2},
+            { id: 2, name: "shopping2", current_version: 1}
         ],
         list_version: [
             { id: 2, parent_id: 1, published: 1, version: 1, valid_from: "2015-06-30T17:36:09.404", valid_to: "2015-07-30T17:36:08.404" },
