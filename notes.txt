@@ -1,6 +1,6 @@
 versioned save
 
-** save new model
+** save new model -- COMPLETE
 
 - create a dev model with no valid date and version #0
 - fill any values provided
@@ -8,7 +8,7 @@ versioned save
 
 
 
-** update versioned model (dev model)
+** update versioned model (dev model) -- COMPLETE
 
 - save changes to the dev model
 

@@ -55,10 +55,24 @@ factory.schemer.drop(schema).then(function() {
 })
 .then(function(results) {
 	console.log(results);
+	console.log('=======================');
 })
 .then(function() {
-	
+	return models.list.forge()
+	.view()
+	.pretty()
+	.saveResource({
+		id: 3,
+		change_notes: 'i updated my notes'
+	});
+})
+.then(function(results) {
+	console.log(results);
+})
+.then(function() {
+	return;
 	// create a new model
+	/*
 	return models.list.forge()
 	.view()
 	.pretty()
@@ -67,11 +81,23 @@ factory.schemer.drop(schema).then(function() {
 		console.log(results);
 	});
 	//.getResources({version: '2015-07-01T00:30:09Z'});
+	*/
 })
 .then(function() {
 	
-	models.list.forge().publish();
+	return models.list.forge().publish(3).then(function(results) {
+		console.log(results);
+	});
 	
+})
+.then(function() {
+	
+	return models.list.forge().publish(3).then(function(results) {
+		console.log(results);
+	});
+	
+})
+.then(function() {
 	// exit the app
 	process.exit();
 });
