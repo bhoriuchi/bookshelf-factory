@@ -103,7 +103,6 @@ factory.schemer.drop(schema).then(function() {
 	return factory.schemer.sync(schema).then(function() {
 		// load the data
 		return factory.schemer.convertAndLoad(data, schema);
-		//return factory.schemer.loadData(data, schema);
 	});
 })
 .then(function() {
