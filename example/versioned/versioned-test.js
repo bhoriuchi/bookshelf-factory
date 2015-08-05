@@ -86,10 +86,10 @@ var operations = [
     {
     	name: 'Get list',
     	show: true,
-    	type: 'getkasd',
+    	type: 'get',
     	model: 'list',
-    	id: 1,
-    	option: {version: 1}
+    	id: 3,
+    	option: {version: 0}
     }
 ];
 
@@ -152,7 +152,7 @@ factory.schemer.drop(schema).then(function() {
 					console.log('#################', op.name, 'end   #################');
 					console.log('');
 				}
-			});			
+			});
 		}
 		else if (op.type === 'getall') {
 			return models[op.model]
@@ -166,13 +166,8 @@ factory.schemer.drop(schema).then(function() {
 					console.log('#################', op.name, 'end   #################');
 					console.log('');
 				}
-			});			
+			});
 		}
-	});
-})
-.then(function() {
-	return models.list.forge().getResource(3).then(function(results) {
-		console.log(results);
 	});
 })
 .then(function() {

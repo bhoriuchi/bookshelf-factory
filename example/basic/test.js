@@ -11,6 +11,7 @@ var config = {
 	debug: false
 };
 
+
 // import the modules
 var factory   = require('../../lib/factory')(config);
 var schema    = require('./sample-schema')(factory.schemer.constants);
