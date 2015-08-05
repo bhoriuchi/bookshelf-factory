@@ -8,6 +8,9 @@ var config = {
 		"database": "test",
 		"charset": "utf8"
 	},
+	ntp: {
+		"server": "pool.ntp.org"
+	},
 	debug: false
 };
 
