@@ -86,9 +86,10 @@ var operations = [
     {
     	name: 'Get list',
     	show: true,
-    	type: 'get',
+    	type: 'getkasd',
     	model: 'list',
-    	id: 3
+    	id: 1,
+    	option: {version: 1}
     }
 ];
 
@@ -142,7 +143,7 @@ factory.schemer.drop(schema).then(function() {
 		else if (op.type === 'get') {
 			return models[op.model]
 			.forge()
-			.getResource(op.id)
+			.getResource(op.id, op.options)
 			.then(function(results) {
 				
 				if (op.show) {
@@ -153,6 +154,25 @@ factory.schemer.drop(schema).then(function() {
 				}
 			});			
 		}
+		else if (op.type === 'getall') {
+			return models[op.model]
+			.forge()
+			.getResources()
+			.then(function(results) {
+				
+				if (op.show) {
+					console.log('#################', op.name, 'start #################');
+					console.log(results);
+					console.log('#################', op.name, 'end   #################');
+					console.log('');
+				}
+			});			
+		}
+	});
+})
+.then(function() {
+	return models.list.forge().getResource(3).then(function(results) {
+		console.log(results);
 	});
 })
 .then(function() {
