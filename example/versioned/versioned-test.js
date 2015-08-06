@@ -21,6 +21,7 @@ var schema    = require('./versioned-schema')(factory.schemer.constants);
 var data      = require('./versioned-data');
 var models;
 
+
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
 
@@ -48,7 +49,6 @@ var operations = [
     	type: 'save',
     	model: 'list',
     	data: {
-    		id: 3,
     		items: [2,4],
     		shared_with: [2],
     		owner: 3,
@@ -61,7 +61,6 @@ var operations = [
     	show: true,
     	type: 'publish',
     	model: 'list',
-    	id: 3,
     	option: true
     },
     {
@@ -70,7 +69,6 @@ var operations = [
     	type: 'save',
     	model: 'list',
     	data: {
-    		id: 3,
     		items: [1],
     		shared_with: [1],
     		owner: 2,
@@ -83,7 +81,6 @@ var operations = [
     	show: true,
     	type: 'publish',
     	model: 'list',
-    	id: 3,
     	option: true
     },
     {
@@ -91,8 +88,7 @@ var operations = [
     	show: true,
     	type: 'get',
     	model: 'list',
-    	id: 3,
-    	option: {version: 0}
+    	option: {}
     }
 ];
 
@@ -107,18 +103,26 @@ factory.schemer.drop(schema).then(function() {
 })
 .then(function() {
 	
+	var resid = null;
+	
 	// forge all of the model definitions
 	models = factory.create(schema);
 
 	
 	return promise.each(operations, function(op) {
 		if (op.type === 'save') {
+			
+			if (resid !== null) {
+				op.data.id = resid;
+			}
+			
 			return models[op.model]
 			.forge()
 			.view()
-			.pretty()
 			.saveResource(op.data)
 			.then(function(results) {
+				
+				resid = results.id;
 				
 				if (op.show) {
 					console.log('#################', op.name, 'start #################');
@@ -131,7 +135,7 @@ factory.schemer.drop(schema).then(function() {
 		else if (op.type === 'publish') {
 			return models[op.model]
 			.forge()
-			.publish(op.id, op.option)
+			.publish(resid, op.option)
 			.then(function(results) {
 				
 				if (op.show) {
@@ -145,9 +149,9 @@ factory.schemer.drop(schema).then(function() {
 		else if (op.type === 'get') {
 			return models[op.model]
 			.forge()
-			.getResource(op.id, op.options)
+			.getResource(resid, op.options)
 			.then(function(results) {
-				
+
 				if (op.show) {
 					console.log('#################', op.name, 'start #################');
 					console.log(results);
@@ -176,26 +180,7 @@ factory.schemer.drop(schema).then(function() {
 	// exit
 	process.exit();
 });
-	
-	
-	
 
-/*
-.then(function() {
-	
-	return models.list.forge().publish(3).then(function(results) {
-		console.log(results);
-	});
-	
-})
-.then(function() {
-	
-	return models.list.forge().publish(3).then(function(results) {
-		console.log(results);
-	});
-	
-})
-*/
 
 
 
