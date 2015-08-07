@@ -24,9 +24,36 @@ var models;
 
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
-
-
+//console.log('Final', schema.listversion.shared_with);
+//process.exit();
 var operations = [
+    {
+        name: 'Save John Doe',
+        show: true,
+        type: 'save',
+        model: 'user',
+        data: {
+            name: 'John Doe',
+        }
+	},
+    {
+        name: 'Save Jane Doe',
+        show: true,
+        type: 'save',
+        model: 'user',
+        data: {
+            name: 'Jane Doe',
+        }
+	},
+    {
+        name: 'Save Foreal Doe',
+        show: true,
+        type: 'save',
+        model: 'user',
+        data: {
+            name: 'Foreal Doe',
+        }
+	},
     {
     	name: 'Save New List',
     	show: true,
@@ -46,7 +73,7 @@ var operations = [
     {
     	name: 'Updating list',
     	show: true,
-    	type: 'save',
+    	type: 'save1',
     	model: 'list',
     	data: {
     		items: [2,4],
@@ -59,14 +86,14 @@ var operations = [
     {
     	name: 'Publishing list',
     	show: true,
-    	type: 'publish',
+    	type: 'publish1',
     	model: 'list',
     	option: true
     },
     {
     	name: 'Updating list again',
     	show: true,
-    	type: 'save',
+    	type: 'save1',
     	model: 'list',
     	data: {
     		items: [1],
@@ -79,14 +106,14 @@ var operations = [
     {
     	name: 'Publishing list again',
     	show: true,
-    	type: 'publish',
+    	type: 'publish1',
     	model: 'list',
     	option: true
     },
     {
     	name: 'Get list',
     	show: true,
-    	type: 'get',
+    	type: 'get1',
     	model: 'list',
     	option: {}
     }
@@ -107,6 +134,7 @@ factory.schemer.drop(schema).then(function() {
 	
 	// forge all of the model definitions
 	models = factory.create(schema);
+	
 
 	
 	return promise.each(operations, function(op) {
@@ -122,7 +150,7 @@ factory.schemer.drop(schema).then(function() {
 			.saveResource(op.data)
 			.then(function(results) {
 				
-				resid = results.id;
+				//resid = results.id;
 				
 				if (op.show) {
 					console.log('#################', op.name, 'start #################');

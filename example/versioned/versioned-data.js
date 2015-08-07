@@ -31,7 +31,7 @@ module.exports = {
             { list_version_id: 3, item_id: 6 },
             { list_version_id: 4, item_id: 1 }
         ],
-        user: [
+        userIGNORE: [
             {id: 1, name: "John Doe"},
             {id: 2, name: "Jane Doe"},
             {id: 3, name: "Foreal Doe"}
