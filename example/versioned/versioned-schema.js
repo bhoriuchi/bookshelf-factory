@@ -7,7 +7,7 @@ module.exports = function(c) {
 			description: {type: c.type.string, size: 500, nullable: true},
 			items: {belongsToMany: 'item', nullable: true, versioned: true},
 			shared_with: {hasMany: 'user', nullable: true, versioned: true},
-			owner: {hasOne: 'user', nullable: true, versioned: false},
+			owner: {hasOne: 'user', nullable: true, versioned: true},
 			category: {belongsTo: 'category', nullable: true, versioned: true}
 		},
 		item: {
@@ -17,7 +17,8 @@ module.exports = function(c) {
 		user: {
 			id: {type: c.type.integer, primary: true, increments: true},
 			name: {type: c.type.string, size: 100},
-			location: {hasOne: 'location', nullable: true}
+			location: {hasOne: 'location', nullable: true},
+			list: {hasOne: 'list', nullable: true}
 		},
 		category: {
 			id: {type: c.type.integer, primary: true, increments: true},

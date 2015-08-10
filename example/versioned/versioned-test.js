@@ -24,12 +24,13 @@ var models;
 
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
+//console.log(JSON.stringify(schema, null, '  '));
 //console.log('Final', schema.listversion.shared_with);
 //process.exit();
 var operations = [
     {
         name: 'Save John Doe',
-        show: true,
+        show: false,
         type: 'save',
         model: 'user',
         data: {
@@ -38,7 +39,7 @@ var operations = [
 	},
     {
         name: 'Save Jane Doe',
-        show: true,
+        show: false,
         type: 'save',
         model: 'user',
         data: {
@@ -52,6 +53,7 @@ var operations = [
         model: 'user',
         data: {
             name: 'Foreal Doe',
+            use_current: false
         }
 	},
     {
