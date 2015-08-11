@@ -16,20 +16,21 @@ module.exports = {
             { id: 1, name: "shopping1", current_version: 2},
             { id: 2, name: "shopping2", current_version: 1}
         ],
-        list_version: [
+        listversion: [
+            { id: 5, parent_id: 1, published: 0, version: 0},
             { id: 2, parent_id: 1, published: 1, version: 1, valid_from: "2015-06-30T17:36:09.404", valid_to: "2015-07-30T17:36:08.404" },
             { id: 3, parent_id: 1, published: 1, version: 2, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" },
             { id: 4, parent_id: 2, published: 1, version: 1, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" }
         ],
-        item_list_version: [
-            { list_version_id: 2, item_id: 3 },
-            { list_version_id: 2, item_id: 4 },
-            { list_version_id: 2, item_id: 7 },
-            { list_version_id: 2, item_id: 9 },
-            { list_version_id: 3, item_id: 3 },
-            { list_version_id: 3, item_id: 4 },
-            { list_version_id: 3, item_id: 6 },
-            { list_version_id: 4, item_id: 1 }
+        item_listversion: [
+            { listversion_id: 2, item_id: 3 },
+            { listversion_id: 2, item_id: 4 },
+            { listversion_id: 2, item_id: 7 },
+            { listversion_id: 2, item_id: 9 },
+            { listversion_id: 3, item_id: 3 },
+            { listversion_id: 3, item_id: 4 },
+            { listversion_id: 3, item_id: 6 },
+            { listversion_id: 4, item_id: 1 }
         ],
         userIGNORE: [
             {id: 1, name: "John Doe"},

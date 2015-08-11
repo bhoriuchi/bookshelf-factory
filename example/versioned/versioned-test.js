@@ -53,7 +53,8 @@ var operations = [
         model: 'user',
         data: {
             name: 'Foreal Doe',
-            use_current: false
+            use_current: false,
+            list: '1'
         }
 	},
     {
@@ -149,6 +150,7 @@ factory.schemer.drop(schema).then(function() {
 			return models[op.model]
 			.forge()
 			.view()
+			.pretty()
 			.saveResource(op.data)
 			.then(function(results) {
 				
@@ -179,6 +181,7 @@ factory.schemer.drop(schema).then(function() {
 		else if (op.type === 'get') {
 			return models[op.model]
 			.forge()
+			.pretty()
 			.getResource(resid, op.options)
 			.then(function(results) {
 
