@@ -11,24 +11,29 @@ var config = {
 	debug: false
 };
 
+
 // import the modules
 var factory   = require('../../lib/factory')(config);
 var schema    = require('./sample-schema')(factory.schemer.constants);
-
-
+var data      = require('./sample-data');
+var models;
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
 
-			
-// forge all of the model definitions
-var models = factory.create(schema);
 
-
-return models.station.forge().getResources().then(function(results) {
-	//console.log(results.models[1].relations);
-	console.log(JSON.stringify(results, null, '  '));
+// drop the schema
+console.log('dropping');
+factory.schemer.drop(schema).then(function() {
+	console.log('syncing');
+	// create a database
+	return factory.schemer.sync(schema).then(function() {
+		// load the data
+		console.log('loading data');
+		return factory.schemer.convertAndLoad(data, schema);
+	});
 })
 .then(function() {
+	console.log('Complete');
 	// exit the app
 	process.exit();
 });

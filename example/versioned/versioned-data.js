@@ -17,10 +17,10 @@ module.exports = {
             { id: 2, name: "shopping2", current_version: 1}
         ],
         listversion: [
-            { id: 5, parent_id: 1, published: 0, version: 0},
-            { id: 2, parent_id: 1, published: 1, version: 1, valid_from: "2015-06-30T17:36:09.404", valid_to: "2015-07-30T17:36:08.404" },
-            { id: 3, parent_id: 1, published: 1, version: 2, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" },
-            { id: 4, parent_id: 2, published: 1, version: 1, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" }
+            { id: 5, parent_id: 1, published: 0, version: 0, category_id: 1},
+            { id: 2, parent_id: 1, published: 1, version: 1, category_id: 1, valid_from: "2015-06-30T17:36:09.404", valid_to: "2015-07-30T17:36:08.404" },
+            { id: 3, parent_id: 1, published: 1, version: 2, category_id: 1, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" },
+            { id: 4, parent_id: 2, published: 1, version: 1, category_id: 2, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" }
         ],
         item_listversion: [
             { listversion_id: 2, item_id: 3 },

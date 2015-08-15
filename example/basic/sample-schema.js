@@ -16,7 +16,8 @@ module.exports = function(c) {
         },
         station: {
             id: {type: c.type.integer, primary: true, increments: true},
-            name: {type: c.type.string, size: 100}
+            name: {type: c.type.string, size: 100},
+            group: {belongsTo: 'group', nullable: true}
         },
         actor: {
             id: {type: c.type.integer, primary: true, increments: true},
