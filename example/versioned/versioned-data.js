@@ -32,13 +32,22 @@ module.exports = {
             { listversion_id: 3, item_id: 6 },
             { listversion_id: 4, item_id: 1 }
         ],
-        userIGNORE: [
-            {id: 1, name: "John Doe"},
-            {id: 2, name: "Jane Doe"},
+        user: [
+            {id: 1, name: "John Doe", list_id: 1},
+            {id: 2, name: "Jane Doe", list_id: 2},
             {id: 3, name: "Foreal Doe"}
+        ],
+        userversion: [
+            {id: 1, parent_id: 1, published: 1, version: 1, list_id: 1, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" },
+            {id: 2, parent_id: 2, published: 1, version: 1, list_id: 2, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" }
+ 
         ],
         category: [
             {id: 1, name: "Shopping"},
             {id: 2, name: "Christmas"}
+        ],
+        location: [
+            {id: 1, name: 'Johns House', user_id: 1},
+            {id: 2, name: 'Janes House', user_id: 2}
         ]
 };

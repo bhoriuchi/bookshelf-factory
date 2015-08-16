@@ -20,20 +20,21 @@ var models;
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
 
+//console.log('------ Start Schema ---');
+//console.log(JSON.stringify(schema, null, '  '));
+//console.log('------ End Schema -----');
 
 // drop the schema
-console.log('dropping');
 factory.schemer.drop(schema).then(function() {
-	console.log('syncing');
+	
 	// create a database
 	return factory.schemer.sync(schema).then(function() {
 		// load the data
-		console.log('loading data');
 		return factory.schemer.convertAndLoad(data, schema);
 	});
 })
 .then(function() {
-	console.log('Complete');
+	
 	// exit the app
 	process.exit();
 });

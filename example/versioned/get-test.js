@@ -20,8 +20,14 @@ var models;
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
 
+
+//console.log(schema);
+//process.exit();
+
 // forge all of the model definitions
 models = factory.create(schema);
+
+//console.log(models._relations);
 
 
 return models.list.forge().pretty().getResources().then(function(results) {
