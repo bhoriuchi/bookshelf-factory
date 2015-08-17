@@ -30,7 +30,9 @@ models = factory.create(schema);
 //console.log(models._relations);
 
 
-return models.list.forge().pretty().getResources().then(function(results) {
+return models.list.forge().pretty()
+.search([{field:'name', search: 'shopping'}, {field: 'change_notes', search: '.*', type: 'regex'}])
+.getResources().then(function(results) {
 	console.log(results);
 })
 .then(function() {

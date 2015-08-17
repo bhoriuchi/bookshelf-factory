@@ -24,7 +24,7 @@ schema = factory.prepareSchema(schema) || {};
 var models = factory.create(schema);
 
 
-return models.station.forge().getResources().then(function(results) {
+return models.station.forge().search([{search: 'test'}, {field: 'name', search: '.*', type: 'regex'}]).getResources().then(function(results) {
 	//console.log(results.models[1].relations);
 	console.log(JSON.stringify(results, null, '  '));
 })
