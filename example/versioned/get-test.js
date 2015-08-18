@@ -31,8 +31,8 @@ models = factory.create(schema);
 
 
 return models.list.forge().pretty()
-.search([{field:'name', search: 'shopping'}, {field: 'change_notes', search: '.*', type: 'regex'}])
-.getResources().then(function(results) {
+//.search('shopping')
+.getResource(1).then(function(results) {
 	console.log(results);
 })
 .then(function() {
