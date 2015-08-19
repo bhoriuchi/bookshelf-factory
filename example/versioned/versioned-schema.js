@@ -2,11 +2,11 @@ module.exports = function(c) {
 	
 	return {
 		list: {
-			id: {type: c.type.string, primary: true, compositeId: true},
-			name: {type: c.type.string, size: 100},
-			description: {type: c.type.string, size: 500, nullable: true},
+			id: {type: c.type.string, primary: true, compositeId: true, views: ['summary']},
+			name: {type: c.type.string, size: 100, views: ['summary']},
+			description: {type: c.type.string, size: 500, nullable: true, views: ['summary']},
 			items: {belongsToMany: 'item', nullable: true, versioned: true},
-			shared_with: {hasMany: 'user', nullable: true, versioned: false},
+			shared_with: {hasMany: 'user', nullable: true, versioned: false, views: ['summary']},
 			owner: {hasOne: 'user', nullable: true, versioned: true},
 			category: {belongsTo: 'category', nullable: true, versioned: true}
 		},
@@ -16,8 +16,8 @@ module.exports = function(c) {
 		},
 		user: {
 			id: {type: c.type.integer, primary: true, increments: true},
-			name: {type: c.type.string, size: 100},
-			location: {hasOne: 'location', nullable: true},
+			name: {type: c.type.string, size: 100, views: ['summary']},
+			location: {hasOne: 'location', nullable: true, views: ['summary']},
 			list: {hasOne: 'list', nullable: true}
 		},
 		category: {
@@ -26,7 +26,7 @@ module.exports = function(c) {
 		},
 		location: {
 			id: {type: c.type.integer, primary: true, increments: true},
-			name: {type: c.type.string, size: 100}
+			name: {type: c.type.string, size: 100, views: ['summary']}
 		}
     };
 };

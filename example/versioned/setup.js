@@ -25,16 +25,19 @@ schema = factory.prepareSchema(schema) || {};
 //console.log('------ End Schema -----');
 
 // drop the schema
+console.log((new Date()).toString() + ' - ' + 'Dropping Tables');
 factory.schemer.drop(schema).then(function() {
 	
 	// create a database
+	console.log((new Date()).toString() + ' - ' + 'Syncing Tables');
 	return factory.schemer.sync(schema).then(function() {
 		// load the data
+		console.log((new Date()).toString() + ' - ' + 'Loading Data');
 		return factory.schemer.convertAndLoad(data, schema);
 	});
 })
 .then(function() {
-	
+	console.log((new Date()).toString() + ' - ' + 'Complete!');
 	// exit the app
 	process.exit();
 });

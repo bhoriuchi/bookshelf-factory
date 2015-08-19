@@ -30,7 +30,7 @@ models = factory.create(schema);
 //console.log(models._relations);
 
 
-return models.list.forge().pretty()
+return models.list.forge().pretty().view('summary')
 //.search('shopping')
 .getResource(1).then(function(results) {
 	console.log(results);
