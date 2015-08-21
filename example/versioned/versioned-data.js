@@ -33,15 +33,15 @@ module.exports = {
             { listversion_id: 4, item_id: 1 }
         ],
         user: [
-            {id: 1, name: "John Doe", list_id: 1},
-            {id: 2, name: "Jane Doe", list_id: 2},
+            {id: 1, name: "John Doe", shared_with_id: 1},
+            {id: 2, name: "Jane Doe", shared_with_id: 2},
             {id: 3, name: "Foreal Doe"}
         ],
         userversion: [
-            {id: 1, parent_id: 1, published: 1, version: 1, list_id: 1, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" },
-            {id: 2, parent_id: 2, published: 1, version: 1, list_id: 2, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" },
-            {id: 3, parent_id: 1, published: 0, version: 0, list_id: 1},
-            {id: 4, parent_id: 2, published: 0, version: 0, list_id: 2},
+            {id: 1, parent_id: 1, published: 1, version: 1, owner_id: 1, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" },
+            {id: 2, parent_id: 2, published: 1, version: 1, owner_id: 2, valid_from: "2015-07-30T17:36:09.404", valid_to: "2115-07-30T17:36:09.404" },
+            {id: 3, parent_id: 1, published: 0, version: 0, owner_id: 3},
+            {id: 4, parent_id: 2, published: 0, version: 0, owner_id: 2},
             {id: 5, parent_id: 3, published: 0, version: 0}
             
 

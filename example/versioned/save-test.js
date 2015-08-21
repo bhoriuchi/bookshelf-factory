@@ -8,7 +8,7 @@ var config = {
 		"database": "test",
 		"charset": "utf8"
 	},
-	debug: false
+	debug: true
 };
 
 // import the modules
@@ -48,7 +48,8 @@ var obj = {
 
 
 
-return models.list.forge().pretty()
+return models.list.forge()
+//.pretty()
 .saveResource(obj)
 .then(function(results) {
 	console.log(results);
