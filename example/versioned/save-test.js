@@ -29,12 +29,17 @@ models = factory.create(schema);
 
 //console.log(models._relations);
 
+var newItem = {
+	name: 'vodka'
+};
+
+
 var obj = {
 	name: 'My List',
 	description: 'my gorcery list',
 	use_current: false,
 	change_notes: 'Im saving a new list',
-	items: [1,3,5,7],
+	items: [1,3,5,7, newItem],
 	shared_with: [1, 3],
 	owner: 2,
 	category: 1
@@ -52,7 +57,6 @@ return models.list.forge().pretty()
 	// exit the app
 	process.exit();
 });
-
 
 
 
