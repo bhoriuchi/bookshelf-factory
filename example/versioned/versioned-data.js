@@ -52,7 +52,7 @@ module.exports = {
             {id: 2, name: "Christmas"}
         ],
         location: [
-            {id: 1, name: 'Johns House', user_id: 1},
-            {id: 2, name: 'Janes House', user_id: 2}
+            {id: 1, name: 'Johns House', location_id: 1},
+            {id: 2, name: 'Janes House', location_id: 2}
         ]
 };

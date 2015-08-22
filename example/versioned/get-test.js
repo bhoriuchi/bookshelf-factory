@@ -30,10 +30,10 @@ models = factory.create(schema);
 //console.log(models._relations);
 
 
-return models.list.forge().pretty().view()
+return models.list.forge().view()
 //.search('shopping')
 .getResource(1, {version: '2015-08-21 17:36:09'}).then(function(results) {
-	console.log(results);
+	console.log(JSON.stringify(results, null, '  '));
 })
 .then(function() {
 	// exit the app
