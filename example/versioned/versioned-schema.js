@@ -4,7 +4,7 @@ module.exports = function(c) {
 		list: {
 			id: {type: c.type.string, primary: true, compositeId: true, views: ['summary']},
 			name: {type: c.type.string, size: 100, views: ['summary']},
-			description: {type: c.type.string, size: 500, nullable: true, views: ['summary']},
+			description: {type: c.type.string, size: 500, nullable: true, views: ['summary'], transform: function(value) {return value + ' was transformed';}},
 			items: {belongsToMany: 'item', nullable: true, versioned: true},
 			shared_with: {hasMany: 'user', nullable: true, versioned: false, views: ['summary']},
 			owner: {hasOne: 'user', nullable: true, versioned: true},
