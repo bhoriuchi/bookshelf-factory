@@ -18,7 +18,7 @@ module.exports = function(c) {
 			id: {type: c.type.integer, primary: true, increments: true},
 			name: {type: c.type.string, size: 100, views: ['summary']},
 			location: {hasOne: 'location', nullable: true, views: ['summary']},
-			list: {hasOne: 'list', nullable: true}
+			list_owned: {belongsTo: 'list', nullable: true, connectRelation: 'owner', versioned: true}
 		},
 		category: {
 			id: {type: c.type.integer, primary: true, increments: true},

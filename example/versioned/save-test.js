@@ -57,7 +57,7 @@ var obj2 = {
 		use_current: false,
 		change_notes: 'Im saving a new list2',
 		items: [5,7],
-		shared_with: [3],
+		shared_with: [2],
 		owner: 1,
 		category: 2
 	};
