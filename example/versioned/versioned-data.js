@@ -17,12 +17,12 @@ module.exports = {
             { id: 2, name: "shopping2", current_version: 1}
         ],
         listversion: [
-            { id: 5, parent_id: 1, published: 0, version: 0, category_id: 1},
-            { id: 2, parent_id: 1, published: 1, version: 1, category_id: 1, valid_from: "2015-06-30T17:36:09.404", valid_to: "2015-07-30T17:36:08.404" },
-            { id: 3, parent_id: 1, published: 1, version: 2, category_id: 1, valid_from: "2015-07-30T17:36:09.404" },
-            { id: 4, parent_id: 2, published: 1, version: 1, category_id: 2, valid_from: "2015-07-30T17:36:09.404" }
+            { id: 5, parent_id: 1, published: 0, version: 0, fk_category_category_id: 1},
+            { id: 2, parent_id: 1, published: 1, version: 1, fk_category_category_id: 1, valid_from: "2015-06-30T17:36:09.404", valid_to: "2015-07-30T17:36:08.404" },
+            { id: 3, parent_id: 1, published: 1, version: 2, fk_category_category_id: 1, valid_from: "2015-07-30T17:36:09.404" },
+            { id: 4, parent_id: 2, published: 1, version: 1, fk_category_category_id: 2, valid_from: "2015-07-30T17:36:09.404" }
         ],
-        item_listversion: [
+        junction_items_item_listversion: [
             { listversion_id: 2, item_id: 3 },
             { listversion_id: 2, item_id: 4 },
             { listversion_id: 2, item_id: 7 },
@@ -33,8 +33,8 @@ module.exports = {
             { listversion_id: 4, item_id: 1 }
         ],
         user: [
-            {id: 1, name: "John Doe", list_id: 1},
-            {id: 2, name: "Jane Doe", list_id: 2},
+            {id: 1, name: "John Doe", fk_list_shared_with_id: 1},
+            {id: 2, name: "Jane Doe", fk_list_shared_with_id: 2},
             {id: 3, name: "Foreal Doe"}
         ],
         userversion: [

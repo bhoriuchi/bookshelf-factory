@@ -18,13 +18,19 @@ var schema    = require('./versioned-schema')(factory.schemer.constants);
 var data      = require('./versioned-data');
 var models;
 // validate the schema
-schema = factory.mods.utils.schema.prepareSchemaX(schema) || {};
+schema = factory.prepareSchema(schema) || {};
+
+//console.log(JSON.stringify(schema,null,'  '));
+//console.log('==============');
+//schema = factory.prepareSchema(schema);
+//console.log(JSON.stringify(schema,null, '  '));
+
 
 //console.log('------ Start Schema ---');
 //console.log(JSON.stringify(schema, null, '  '));
 //console.log('------ End Schema -----');
-console.log(schema);
-process.exit();
+//console.log(schema);
+//process.exit();
 
 // drop the schema
 console.log((new Date()).toString() + ' - ' + 'Dropping Tables');

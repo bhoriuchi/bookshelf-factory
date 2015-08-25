@@ -22,8 +22,7 @@ module.exports = function(c) {
 		},
 		category: {
 			id: {type: c.type.integer, primary: true, increments: true},
-			name: {type: c.type.string, size: 100},
-			list: {hasOne: 'list', nullable: true}
+			name: {type: c.type.string, size: 100}
 		},
 		location: {
 			id: {type: c.type.integer, primary: true, increments: true},
