@@ -44,7 +44,7 @@ var obj1 = {
 	description: 'my gorcery list',
 	use_current: false,
 	change_notes: 'Im saving a new list',
-	items: [1,3, newItem],
+	items: [1,3],
 	shared_with: [1, 3],
 	owner: 2,
 	category: 1
@@ -67,6 +67,7 @@ var objArray = [obj1, obj2];
 
 return models.list.forge()
 .saveResource(objArray)
+.end()
 .then(function(results) {
 	console.log(JSON.stringify(results, null, '  '));
 })

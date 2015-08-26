@@ -85,7 +85,7 @@ var schema = {
 var models = factory.create(schema);
 
 // forge the model and get all of its resources
-models.survivor.forge().getResources().then(function(results) {
+models.survivor.forge().getResources().end().then(function(results) {
 
     // pretty print the results to the console
     console.log(JSON.stringify(results, null, ' '));

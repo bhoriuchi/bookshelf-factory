@@ -32,7 +32,9 @@ models = factory.create(schema);
 
 return models.list.forge().view()
 //.search('shopping')
-.getResource(1, {version: '2015-08-21 17:36:09'}).then(function(results) {
+.getResources()
+.end()
+.then(function(results) {
 	console.log(JSON.stringify(results, null, '  '));
 })
 .then(function() {
