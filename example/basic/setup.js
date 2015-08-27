@@ -33,7 +33,7 @@ factory.schemer.drop(schema).then(function() {
 		return factory.schemer.convertAndLoad(data, schema).then(function() {
 			
 			// forge all of the model definitions
-			models = factory.create(schema);
+			models = factory.create(schema, {prepareSchema: false});
 
 			// create a new model
 			return models.survivor.forge()

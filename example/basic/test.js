@@ -20,10 +20,6 @@ var models;
 // validate the schema
 schema = factory.prepareSchema(schema) || {};
 
-//console.log('------ Start Schema ---');
-//console.log(JSON.stringify(schema, null, '  '));
-//console.log('------ End Schema -----');
-
 // drop the schema
 factory.schemer.drop(schema).then(function() {
 	
@@ -33,7 +29,7 @@ factory.schemer.drop(schema).then(function() {
 		return factory.schemer.convertAndLoad(data, schema).then(function() {
 			
 			// forge all of the model definitions
-			models = factory.create(schema);
+			models = factory.create(schema, {prepareSchema: false});
 
 			// create a new model
 			return models.survivor.forge()
@@ -41,8 +37,7 @@ factory.schemer.drop(schema).then(function() {
 				qb.limit(1);
 			})
 			.view()
-			.pretty()
-			.getResources();
+			.getResources().end();
 			
 		});
 	});
@@ -53,27 +48,28 @@ factory.schemer.drop(schema).then(function() {
 	console.log('--------------------------------');
 	console.log('Example 1: Request Limit 1');
 	console.log(' ');
-	console.log(results);
+	console.log(JSON.stringify(results, null, '  '));
 	console.log('--------------------------------');
 	
 	// save a new survivor
-	return models.survivor.forge().view('summary').pretty()
+	return models.survivor.forge().view('summary')
 	.saveResource({
 		name: 'Jacob',
 		station_id: 1,
 		groups: [1, 2],
 		ignore1: 'x'
 	})
+	.end()
 	.then(function(results) {
 		
 		console.log('--------------------------------');
 		console.log('Example 2: Save a new Resource');
 		console.log(' ');
-		console.log(results);
+		console.log(JSON.stringify(results, null, '  '));
 		console.log('--------------------------------');
 	})
 	.then(function() {
-		return models.survivor.forge().view('summary').pretty()
+		return models.survivor.forge().view('summary')
 		.saveResource({
 			sid: 15,
 			station_id: 2,
@@ -82,41 +78,44 @@ factory.schemer.drop(schema).then(function() {
 			_ignore2: true,
 			station: 3
 		})
+		.end()
 		.then(function(results) {
 			
 			console.log('--------------------------------');
 			console.log('Example 3: Update a new Resource');
 			console.log(' ');
-			console.log(results);
+			console.log(JSON.stringify(results, null, '  '));
 			console.log('--------------------------------');
 		});
 	})
 	.then(function() {
 		// save a new actor
-		return models.actor.forge().view().pretty()
+		return models.actor.forge().view()
 		.saveResource({
 			name: 'Evangeline Lilly',
 			character: 7,
 			nicknames: [8, 9, 10]
 		})
+		.end()
 		.then(function(results) {
 			
 			console.log('--------------------------------');
 			console.log('Example 4: Save a new Actor');
 			console.log(' ');
-			console.log(results);
+			console.log(JSON.stringify(results, null, '  '));
 			console.log('--------------------------------');
 		});
 	})
 	.then(function() {
 		// save a new actor
-		return models.survivor.forge().deleteResource(7)
+		return models.survivor.forge().deleteResource(7, {force: true})
+		.end()
 		.then(function(results) {
 			
 			console.log('--------------------------------');
 			console.log('Deleting Kate');
 			console.log(' ');
-			console.log(results);
+			console.log(JSON.stringify(results, null, '  '));
 			console.log('--------------------------------');
 		});
 	});
@@ -124,11 +123,13 @@ factory.schemer.drop(schema).then(function() {
 .then(function() {
 	
 	// delete a survivor
-	return models.actor.forge().deleteResource(3, {force: true}).then(function(results) {
+	return models.actor.forge().deleteResource(3, {force: true})
+	.end()
+	.then(function(results) {
 		console.log('--------------------------------');
 		console.log('Example 5: Delete Resource');
 		console.log(' ');
-		console.log(results);
+		console.log(JSON.stringify(results, null, '  '));
 		console.log('--------------------------------');
 	});
 })

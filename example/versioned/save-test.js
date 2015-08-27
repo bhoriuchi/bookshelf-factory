@@ -23,7 +23,7 @@ var data      = require('./versioned-data');
 var models;
 
 // validate the schema
-schema = factory.prepareSchema(schema) || {};
+//schema = factory.prepareSchema(schema) || {};
 
 
 //console.log(schema);

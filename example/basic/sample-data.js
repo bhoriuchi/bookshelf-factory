@@ -21,7 +21,7 @@ module.exports = {
             { id: 3, name: "others" },
             { id: 4, name: "oceanic6" }
         ],
-        group_survivor: [
+        junction_groups_group_survivor: [
             { survivor_sid: 1, group_id: 1 },
             { survivor_sid: 1, group_id: 4 },
             { survivor_sid: 2, group_id: 1 },
