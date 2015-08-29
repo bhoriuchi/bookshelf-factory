@@ -19,13 +19,27 @@ var models;
 
 // validate the schema
 //schema = factory.prepareSchema(schema) || {};
-
+var obj = {
+	name: 'My List',
+	description: 'my gorcery list',
+	use_current: false,
+	change_notes: 'Im saving a new list',
+	items: [1,3],
+	shared_with: [1, 3],
+	owner: 2,
+	category: 1
+};
 			
 // forge all of the model definitions
 models = factory.create(schema);
 
 
-return models.list.forge().publish(3).then(function(results) {
+return models.list.forge()
+.saveResource(obj)
+.publish()
+.saveResource({items: [4,5]})
+.end()
+.then(function(results) {
 	console.log(results);
 })
 .then(function() {

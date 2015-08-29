@@ -18,9 +18,9 @@ module.exports = {
         ],
         listversion: [
             { id: 5, parent_id: 1, published: 0, version: 0, fk_category_category_id: 1},
-            { id: 2, parent_id: 1, published: 1, version: 1, fk_category_category_id: 1, valid_from: "2015-06-30T17:36:09.404", valid_to: "2015-07-30T17:36:08.404" },
-            { id: 3, parent_id: 1, published: 1, version: 2, fk_category_category_id: 1, valid_from: "2015-07-30T17:36:09.404" },
-            { id: 4, parent_id: 2, published: 1, version: 1, fk_category_category_id: 2, valid_from: "2015-07-30T17:36:09.404" }
+            { id: 2, parent_id: 1, published: 1, version: 1, fk_category_category_id: 1, valid_from: "1435685769404", valid_to: "1438277769404" },
+            { id: 3, parent_id: 1, published: 1, version: 2, fk_category_category_id: 1, valid_from: "1435685769404" },
+            { id: 4, parent_id: 2, published: 1, version: 1, fk_category_category_id: 2, valid_from: "1435685769404" }
         ],
         junction_items_item_listversion: [
             { listversion_id: 2, item_id: 3 },
@@ -38,12 +38,12 @@ module.exports = {
             {id: 3, name: "Foreal Doe"}
         ],
         userversion: [
-            {id: 1, parent_id: 1, published: 1, version: 1, list_id: 1, valid_from: "2015-07-30T17:36:09.404" },
-            {id: 2, parent_id: 2, published: 1, version: 1, list_id: 2, valid_from: "2015-07-30T17:36:09.404" },
+            {id: 1, parent_id: 1, published: 1, version: 1, list_id: 1, valid_from: "1438277769404" },
+            {id: 2, parent_id: 2, published: 1, version: 1, list_id: 2, valid_from: "1438277769404" },
             {id: 3, parent_id: 1, published: 0, version: 0, list_id: 3},
             {id: 4, parent_id: 2, published: 0, version: 0, list_id: 2},
             {id: 5, parent_id: 3, published: 0, version: 0},
-            {id: 6, parent_id: 3, published: 1, version: 1, list_id: 2, valid_from: "2015-07-30T17:36:09.404" },
+            {id: 6, parent_id: 3, published: 1, version: 1, list_id: 2, valid_from: "1438277769404" },
             
 
             
