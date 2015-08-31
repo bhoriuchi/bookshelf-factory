@@ -33,17 +33,19 @@ var obj = {
 // forge all of the model definitions
 models = factory.create(schema);
 
-
-return models.list.forge()
-.saveResource(obj)
-.publish()
-.saveResource({items: [4,5]})
-.end()
+// create a chain transaction
+return factory.transaction(function(t) {
+	return models.list.forge()
+	.transaction(t)
+	.saveResource(obj)
+	.publish()
+	.saveResource({items: [4,5]})
+	.getResources();
+})
 .then(function(results) {
 	console.log(results);
 })
 .then(function() {
-	// exit the app
 	process.exit();
 });
 
