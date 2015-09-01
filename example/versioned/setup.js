@@ -27,10 +27,10 @@ schema = factory.prepareSchema(schema) || {};
 
 
 //console.log('------ Start Schema ---');
-//console.log(JSON.stringify(schema, null, '  '));
+console.log(JSON.stringify(schema, null, '  '));
 //console.log('------ End Schema -----');
 //console.log(schema);
-//process.exit();
+process.exit();
 
 // drop the schema
 console.log((new Date()).toString() + ' - ' + 'Dropping Tables');
