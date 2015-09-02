@@ -28,7 +28,7 @@
     "knex": "^0.8.6",
     "bluebird": "^2.9.34",
     "knex-schemer": "git+https://github.com/bhoriuchi/knex-schemer.git#master",
-    "bookshelf": "^0.8.1",
+    "bookshelf": "^0.8.2",
     "dotprune": "^0.1.1",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",

@@ -43,13 +43,13 @@ return factory.transaction(function(t) {
 	return models.list.forge()
 	.transaction(t)
 	.saveResource(obj)
-	//.print({wrapText: 'SAVE1=================='})
-	.publish()
-	.print({wrapText: 'PUBLISH1=================='})
-	.saveResource({items: [4,5]})
-	.print({wrapText: 'SAVE2=================='})
-	.publish()
-	.print({wrapText: 'PUBLISH2=================='});
+	.print({wrapText: 'SAVE1=================='})
+	.publish();
+	//.print({wrapText: 'PUBLISH1=================='})
+	//.saveResource({items: [4,5]})
+	//.print({wrapText: 'SAVE2=================='})
+	//.publish()
+	//.print({wrapText: 'PUBLISH2=================='});
 
 	//.end({returnModel: true});
 })
