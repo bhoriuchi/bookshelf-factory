@@ -43,7 +43,7 @@ return factory.transaction(function(t) {
 	return models.list.forge()
 	.transaction(t)
 	.saveResource(obj)
-	.print({wrapText: 'SAVE1=================='})
+	//.print({wrapText: 'SAVE1=================='})
 	.publish();
 	//.print({wrapText: 'PUBLISH1=================='})
 	//.saveResource({items: [4,5]})
@@ -62,7 +62,7 @@ return factory.transaction(function(t) {
 	//.end();
 })
 .then(function(results) {
-	console.log(results);
+	console.log(JSON.stringify(results, null, ' '));
 })
 .caught(function(e) {
 	console.log(e);
