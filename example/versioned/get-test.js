@@ -32,7 +32,7 @@ models = factory.create(schema);
 
 return models.list.forge().view()
 //.search('shopping')
-.getResources()
+.getResource('list-Vyl-G0F-p', {version: 0})
 .end()
 .then(function(results) {
 	console.log(JSON.stringify(results, null, '  '));

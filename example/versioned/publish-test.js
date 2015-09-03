@@ -29,7 +29,7 @@ var obj = {
 	use_current: false,
 	change_notes: 'Im saving a new list',
 	items: [1,3],
-	shared_with: [1, 3],
+	shared_with: [1, 2],
 	owner: 2,
 	category: 1
 };
@@ -62,7 +62,7 @@ return factory.transaction(function(t) {
 	//.end();
 })
 .then(function(results) {
-	console.log(JSON.stringify(results, null, ' '));
+	console.log(JSON.stringify(results, null, '  '));
 })
 .caught(function(e) {
 	console.log(e);

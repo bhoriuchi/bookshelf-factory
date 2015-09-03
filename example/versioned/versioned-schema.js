@@ -6,7 +6,7 @@ module.exports = function(c) {
 			name: {type: c.type.string, size: 100, unique: true},
 			description: {type: c.type.string, size: 500, nullable: true, views: ['summary'], transform: function(value) {return value + ' was transformed';}},
 			items: {belongsToMany: 'item', nullable: true, versioned: true},
-			shared_with: {hasMany: 'user', nullable: true, versioned: false, views: ['summary']},
+			shared_with: {hasMany: 'user', nullable: true, versioned: true, views: ['summary']},
 			owner: {hasOne: 'user', nullable: true, versioned: true, defaultTo: 1},
 			category: {belongsTo: 'category', nullable: true, versioned: true}
 		},
