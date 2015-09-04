@@ -33,9 +33,9 @@ module.exports = {
             { listversion_id: 4, item_id: 1 }
         ],
         user: [
-            {id: 1, name: "John Doe", fk_list_shared_with_id: 1},
-            {id: 2, name: "Jane Doe", fk_list_shared_with_id: 2},
-            {id: 3, name: "Foreal Doe"}
+            {id: 1, name: "John Doe", fk_list_shared_with_id: 1, current_version: 1},
+            {id: 2, name: "Jane Doe", fk_list_shared_with_id: 2, current_version: 1},
+            {id: 3, name: "Foreal Doe", current_version: 1}
         ],
         userversion: [
             {id: 1, parent_id: 1, published: 1, version: 1, list_id: 1, valid_from: "1438277769404" },

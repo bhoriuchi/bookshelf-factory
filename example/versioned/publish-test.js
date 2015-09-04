@@ -8,7 +8,7 @@ var config = {
 		"database": "test",
 		"charset": "utf8"
 	},
-	debug: false
+	debug: true
 };
 
 // import the modules
@@ -44,11 +44,11 @@ return factory.transaction(function(t) {
 	.transaction(t)
 	.saveResource(obj)
 	//.print({wrapText: 'SAVE1=================='})
-	.publish();
+	.publish({force: true})
 	//.print({wrapText: 'PUBLISH1=================='})
-	//.saveResource({items: [4,5]})
+	.saveResource({shared_with: [2,3]})
 	//.print({wrapText: 'SAVE2=================='})
-	//.publish()
+	.publish({force: true});
 	//.print({wrapText: 'PUBLISH2=================='});
 
 	//.end({returnModel: true});

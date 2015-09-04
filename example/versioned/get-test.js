@@ -30,9 +30,9 @@ models = factory.create(schema);
 //console.log(models._relations);
 
 
-return models.list.forge().view()
+return models.user.forge().view()
 //.search('shopping')
-.getResource('list-Vyl-G0F-p', {version: 0})
+.getResource(2, {version: '1441404222701'})
 .end()
 .then(function(results) {
 	console.log(JSON.stringify(results, null, '  '));
