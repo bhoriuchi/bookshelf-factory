@@ -42,13 +42,14 @@ return factory.transaction(function(t) {
 	
 	return models.list.forge()
 	.transaction(t)
-	.saveResource(obj)
+	.unpublish('list-41elXfUBT');
+	//.saveResource(obj)
 	//.print({wrapText: 'SAVE1=================='})
-	.publish({force: true})
+	//.publish({force: true})
 	//.print({wrapText: 'PUBLISH1=================='})
-	.saveResource({shared_with: [2,3]})
+	//.saveResource({shared_with: [2,3]})
 	//.print({wrapText: 'SAVE2=================='})
-	.publish({force: true});
+	//.publish({force: true});
 	//.print({wrapText: 'PUBLISH2=================='});
 
 	//.end({returnModel: true});
