@@ -29,10 +29,19 @@ models = factory.create(schema);
 
 //console.log(models._relations);
 
+var override = [
+    {
+    	type: 'list',
+    	id: 'list-41elXfUBT',
+    	version: '1441555200228'
+    }
+];
+
 
 return models.user.forge().view()
 //.search('shopping')
-.getResource(2, {version: '2015-08-01 12:00:00'})
+//.getResource(2)
+.getResource(2, {override: override})
 .end()
 .then(function(results) {
 	console.log(JSON.stringify(results, null, '  '));
