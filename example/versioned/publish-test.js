@@ -8,7 +8,7 @@ var config = {
 		"database": "test",
 		"charset": "utf8"
 	},
-	debug: true
+	debug: false
 };
 
 // import the modules

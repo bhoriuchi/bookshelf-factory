@@ -32,7 +32,7 @@ models = factory.create(schema);
 
 return models.user.forge().view()
 //.search('shopping')
-.getResource(2, {version: '1441404222701'})
+.getResource(2, {version: '2015-08-01 12:00:00'})
 .end()
 .then(function(results) {
 	console.log(JSON.stringify(results, null, '  '));
