@@ -42,16 +42,15 @@ return factory.transaction(function(t) {
 	
 	return models.list.forge()
 	.transaction(t)
-	.unpublish('list-41elXfUBT');
-	//.saveResource(obj)
-	//.print({wrapText: 'SAVE1=================='})
-	//.publish({force: true})
-	//.print({wrapText: 'PUBLISH1=================='})
-	//.saveResource({shared_with: [2,3]})
-	//.print({wrapText: 'SAVE2=================='})
-	//.publish({force: true});
-	//.print({wrapText: 'PUBLISH2=================='});
-
+	//.deactivate('list-N1lX8sVU6');
+	.publish('list-N1lX8sVU6', {force: true});
+	//.activate('list-N1lX8sVU6', {force: true});
+	/*
+	.saveResource(obj)
+	.publish({force: true})
+	.saveResource({shared_with: [2,3]})
+	.publish({force: true});
+*/
 	//.end({returnModel: true});
 })
 .then(function(results) {

@@ -12,7 +12,7 @@ module.exports = function(c) {
         group: {
             id: {type: c.type.integer, primary: true, increments: true},
             name: {type: c.type.string, size: 100, views: ['summary']},
-            station: {hasOne: 'station', nullable: true}
+            station: {hasOne: 'station', nullable: true, connectRelation: 'group'}
         },
         station: {
             id: {type: c.type.integer, primary: true, increments: true},
