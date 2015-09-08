@@ -38,10 +38,11 @@ var override = [
 ];
 
 
-return models.user.forge().view()
+return models.list.forge().view()
 //.search('shopping')
 //.getResource(2)
-.getResource(2, {override: override})
+.href('https://api.server.com')
+.getResource('list-4Jx8vakuT', {maxDepth: 0})
 .end()
 .then(function(results) {
 	console.log(JSON.stringify(results, null, '  '));

@@ -43,14 +43,13 @@ return factory.transaction(function(t) {
 	return models.list.forge()
 	.transaction(t)
 	//.deactivate('list-N1lX8sVU6');
-	.publish('list-N1lX8sVU6', {force: true});
 	//.activate('list-N1lX8sVU6', {force: true});
-	/*
+	
 	.saveResource(obj)
 	.publish({force: true})
 	.saveResource({shared_with: [2,3]})
 	.publish({force: true});
-*/
+
 	//.end({returnModel: true});
 })
 .then(function(results) {

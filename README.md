@@ -1,8 +1,9 @@
 
 
-# bookshelf-factory
+![bookshelf-factory](https://github.com/bhoriuchi/bookshelf-factory/blob/master/public/assets/images/bookshelf-factory.png)
 ---
-bookshelf-factory is a tool that extends the knex-schemer schema definition format to produce an object containing models for each table defined. Using this tool you can define relationships between models as well as views for specific data. The tool also takes care of withRelated for you and provides a custom getResources function that allows you to combine all of the functionality into 1 function while still allowing you to use knex query functions
+**bookshelf-factory** is a tool that allows you to define [bookshelf.js](http://bookshelfjs.org/) models in **JSON** format and create them along with custom get, save, and delete functions that work with deeply nested objects. As of version **1.0.0** support for temporal/versioned models has been included.
+
 
 * See the **[WIKI](https://github.com/bhoriuchi/bookshelf-factory/wiki)** for full documentation
 * And the **[Change Log](https://github.com/bhoriuchi/bookshelf-factory/wiki/Change-Log)** for what's new
