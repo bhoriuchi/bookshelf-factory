@@ -44,7 +44,7 @@ return factory.transaction(function(t) {
 	.transaction(t)
 	//.deactivate('list-N1lX8sVU6');
 	//.activate('list-N1lX8sVU6', {force: true});
-	
+	.href('http://api.att.com')
 	.saveResource(obj)
 	.publish({force: true})
 	.saveResource({shared_with: [2,3]})

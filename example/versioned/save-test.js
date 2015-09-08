@@ -66,6 +66,7 @@ var objArray = [obj1, obj2];
 
 
 return models.list.forge()
+.href('http://api.att.com')
 .saveResource(objArray)
 .end()
 .then(function(results) {

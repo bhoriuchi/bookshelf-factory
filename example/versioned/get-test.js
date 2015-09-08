@@ -39,10 +39,20 @@ var override = [
 
 
 return models.list.forge().view()
-//.search('shopping')
-//.getResource(2)
+.order([
+    {
+	    field:'version',
+	    direction: 'desc'
+    },
+    {
+    	field: 'name',
+    	direction: 'asc'
+    }
+])
+//.search({search: '2', field: 'version'})
+.getResources({maxDepth: 0})
 .href('https://api.server.com')
-.getResource('list-4Jx8vakuT', {maxDepth: 0})
+//.getResource('list-Nkx2ZlWua', {maxDepth: 0})
 .end()
 .then(function(results) {
 	console.log(JSON.stringify(results, null, '  '));

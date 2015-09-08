@@ -1,7 +1,7 @@
 {
   "name": "bookshelf-factory",
   "version": "1.0.0",
-  "description": "Create, update, and get deeply nested versioned or un-versioned bookshelf models using JSON definitions",
+  "description": "Create and manage deeply nested bookshelf models using JSON",
   "main": "lib/factory.js",
   "repository": {
     "type": "git",
