@@ -38,20 +38,12 @@ var override = [
 ];
 
 
-return models.list.forge().view()
-.order([
-    {
-	    field:'version',
-	    direction: 'desc'
-    },
-    {
-    	field: 'name',
-    	direction: 'asc'
-    }
-])
-//.search({search: '2', field: 'version'})
-.getResources({maxDepth: 0})
+return models.list.forge()
 .href('https://api.server.com')
+.paginate(factory.statics.paginations.datatables)
+.search({search: '2', field: 'version'})
+.view(['id'])
+.getResources({maxDepth: 0})
 //.getResource('list-Nkx2ZlWua', {maxDepth: 0})
 .end()
 .then(function(results) {
