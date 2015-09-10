@@ -19,7 +19,8 @@
   "license": "MIT",
   "homepage": "https://github.com/bhoriuchi/bookshelf-factory",
   "devDependencies": {
-    "mysql": "^2.8.0"
+    "mysql": "^2.8.0",
+    "restify": "*"
   },
   "bugs": {
     "url": "https://github.com/bhoriuchi/bookshelf-factory/issues"

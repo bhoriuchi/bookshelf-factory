@@ -8,25 +8,30 @@ module.exports = function(c) {
 			items: {belongsToMany: 'item', nullable: true, versioned: true},
 			shared_with: {hasMany: 'user', nullable: true, versioned: true, views: ['summary']},
 			owner: {hasOne: 'user', nullable: true, versioned: true, defaultTo: 1},
-			category: {belongsTo: 'category', nullable: true, versioned: true}
+			category: {belongsTo: 'category', nullable: true, versioned: true},
+			_path: {path: '/lists'}
 		},
 		item: {
 			id: {type: c.type.integer, primary: true, increments: true},
-			name: {type: c.type.string, size: 100}
+			name: {type: c.type.string, size: 100},
+			_path: {path: '/items'}
 		},
 		user: {
 			id: {type: c.type.integer, primary: true, increments: true},
 			name: {type: c.type.string, size: 100, views: ['summary']},
 			location: {hasOne: 'location', nullable: true, views: ['summary']},
-			list_owned: {belongsTo: 'list', nullable: true, connectRelation: 'owner', versioned: true}
+			list_owned: {belongsTo: 'list', nullable: true, connectRelation: 'owner', versioned: true},
+			_path: {path: '/users'}
 		},
 		category: {
 			id: {type: c.type.integer, primary: true, increments: true},
-			name: {type: c.type.string, size: 100}
+			name: {type: c.type.string, size: 100},
+			_path: {path: '/categorys'}
 		},
 		location: {
 			id: {type: c.type.integer, primary: true, increments: true},
-			name: {type: c.type.string, size: 100, views: ['summary']}
+			name: {type: c.type.string, size: 100, views: ['summary']},
+			_path: {path: '/locations'}
 		}
     };
 };
