@@ -34,7 +34,8 @@
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "node-uuid": "^1.4.3",
-    "shortid": "^2.2.2"
+    "shortid": "^2.2.2",
+    "qs": "^5.0.0"
   },
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1"

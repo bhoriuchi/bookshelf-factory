@@ -26,7 +26,7 @@ models = factory.create(schema);
 function getLists(req, res, next) {
 
 	models.list.forge()
-	.paginate(factory.statics.paginations.basic, req)
+	.paginate(factory.statics.paginations.offset, req)
 
 	//.search({search: '2', field: 'version'})
 	//.view(['id'])

@@ -117,12 +117,18 @@ var params = {
 		  "_": "1441901038412"
 		};
 
-var req = {params: params};
+var req = {
+	headers: {
+		host: 'localhost:8080'
+	},
+	connection: {},
+	params: params
+};
 
 
 return models.list.forge()
 //.href('https://api.server.com')
-.paginate(factory.statics.paginations.datatables, req)
+.paginate(factory.statics.paginations.offset, req)
 //.search({search: '2', field: 'version'})
 //.view(['id'])
 .getResources({maxDepth: 0})
