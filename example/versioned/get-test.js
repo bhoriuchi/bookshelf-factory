@@ -128,8 +128,8 @@ var req = {
 
 return models.list.forge()
 //.href('https://api.server.com')
-.paginate(factory.statics.paginations.offset, req)
-//.search({search: '2', field: 'version'})
+//.paginate(factory.statics.paginations.offset, req)
+.search({search: '2', field: 'version'})
 //.view(['id'])
 .getResources({maxDepth: 0})
 //.getResource('list-Nkx2ZlWua', {maxDepth: 0})
