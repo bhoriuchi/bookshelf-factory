@@ -129,9 +129,9 @@ var req = {
 return models.list.forge()
 //.href('https://api.server.com')
 //.paginate(factory.statics.paginations.offset, req)
-.search({search: '2', field: 'version'})
-//.view(['id'])
-.getResources({maxDepth: 0})
+//.search({search: '2', field: 'version'})
+.view(['owner.name','owner.active', 'shared_with.version', 'shared_with.active'])
+.getResources({useCache: true})
 //.getResource('list-Nkx2ZlWua', {maxDepth: 0})
 .end()
 .then(function(results) {
