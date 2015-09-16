@@ -8,6 +8,12 @@ var config = {
 		"database": "test",
 		"charset": "utf8"
 	},
+	useServerTime: true,
+	ntp: [
+	    {host: "ns-pdc.directv.com"},
+		{host: "pool.ntp.org"}
+	],
+	ntpTimeout: 100,
 	debug: false
 };
 
@@ -44,9 +50,11 @@ return factory.transaction(function(t) {
 	.transaction(t)
 	//.deactivate('list-N1lX8sVU6');
 	//.activate('list-N1lX8sVU6', {force: true});
-	.href('http://api.att.com')
+	//.href('http://api.att.com')
 	.saveResource(obj)
+	.print({wrapText: '========SAVE===='})
 	.publish({force: true})
+	.print({wrapText: '========PUB===='})
 	.saveResource({shared_with: [2,3]})
 	.publish({force: true});
 

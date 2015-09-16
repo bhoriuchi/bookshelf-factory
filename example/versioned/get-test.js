@@ -8,6 +8,11 @@ var config = {
 		"database": "test",
 		"charset": "utf8"
 	},
+	ntp: [
+	    {host: "pool.ntp.org", port: 5000},
+	    {host: "ns-pdc.directv.com", port: 123}
+	],
+	ntpTimeout: 100,
 	debug: false
 };
 
