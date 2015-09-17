@@ -36,7 +36,8 @@
     "node-uuid": "^1.4.3",
     "shortid": "^2.2.2",
     "qs": "^5.0.0",
-    "ntp-client": "^0.5.3"
+    "ntp-client": "^0.5.3",
+    "jsdoc": "*"
   },
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
