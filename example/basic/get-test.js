@@ -23,9 +23,11 @@ schema = factory.prepareSchema(schema) || {};
 // forge all of the model definitions
 var models = factory.create(schema);
 
-//var f = models.station.forge();
-//console.log(f.version);
-//process.exit();
+var f = models.station;
+console.log(f);
+process.exit();
+
+
 return models.station.forge()
 .getResources()
 .end()
