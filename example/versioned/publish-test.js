@@ -46,7 +46,7 @@ models = factory.create(schema);
 // create a chain transaction
 return factory.transaction(function(t) {
 	
-	return factory.clone(models.list).forge()
+	return models.list.forge()
 	.transaction(t)
 	//.deactivate('list-N1lX8sVU6');
 	//.activate('list-N1lX8sVU6', {force: true});

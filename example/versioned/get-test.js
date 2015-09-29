@@ -131,7 +131,7 @@ var req = {
 };
 
 
-return factory.clone(models.list).forge()
+return factory.models().list.forge()
 //.href('https://api.server.com')
 //.paginate(factory.statics.paginations.offset, req)
 //.search({search: '2', field: 'version'})
