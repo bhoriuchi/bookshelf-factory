@@ -16,28 +16,28 @@ module.exports = {
             { id: 1, name: "shopping1", current_version: 2},
             { id: 2, name: "shopping2", current_version: 1}
         ],
-        listversion: [
+        listver: [
             { id: 5, parent_id: 1, published: 0, version: 0, fk_category_category_id: 1},
             { id: 2, parent_id: 1, published: 1, version: 1, fk_category_category_id: 1, valid_from: "1435685769404", valid_to: "1438277769404" },
             { id: 3, parent_id: 1, published: 1, version: 2, fk_category_category_id: 1, valid_from: "1435685769404" },
             { id: 4, parent_id: 2, published: 1, version: 1, fk_category_category_id: 2, valid_from: "1435685769404" }
         ],
-        junction_items_item_listversion: [
-            { listversion_id: 2, item_id: 3 },
-            { listversion_id: 2, item_id: 4 },
-            { listversion_id: 2, item_id: 7 },
-            { listversion_id: 2, item_id: 9 },
-            { listversion_id: 3, item_id: 3 },
-            { listversion_id: 3, item_id: 4 },
-            { listversion_id: 3, item_id: 6 },
-            { listversion_id: 4, item_id: 1 }
+        jn_items_item_listver: [
+            { listver_id: 2, item_id: 3 },
+            { listver_id: 2, item_id: 4 },
+            { listver_id: 2, item_id: 7 },
+            { listver_id: 2, item_id: 9 },
+            { listver_id: 3, item_id: 3 },
+            { listver_id: 3, item_id: 4 },
+            { listver_id: 3, item_id: 6 },
+            { listver_id: 4, item_id: 1 }
         ],
         user: [
             {id: 1, name: "John Doe", fk_list_shared_with_id: 1, current_version: 1},
             {id: 2, name: "Jane Doe", fk_list_shared_with_id: 2, current_version: 1},
             {id: 3, name: "Foreal Doe", current_version: 1}
         ],
-        userversion: [
+        userver: [
             {id: 1, parent_id: 1, published: 1, version: 1, list_id: 1, valid_from: "1438277769404" },
             {id: 2, parent_id: 2, published: 1, version: 1, list_id: 2, valid_from: "1438277769404" },
             {id: 3, parent_id: 1, published: 0, version: 0, list_id: 3},
