@@ -9,7 +9,8 @@ module.exports = function(c) {
 			shared_with: {hasMany: 'user', nullable: true, versioned: true, views: ['summary']},
 			owner: {hasOne: 'user', nullable: true, versioned: true, defaultTo: 1},
 			category: {belongsTo: 'category', nullable: true, versioned: true},
-			_path: {path: '/lists'}
+			_path: {path: '/lists'},
+			_model: {name: 'list'}
 		},
 		item: {
 			id: {type: c.type.integer, primary: true, increments: true},
