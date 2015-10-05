@@ -13,14 +13,14 @@ module.exports = {
            
         ],
         list: [
-            { id: 1, name: "shopping1", current_version: 2},
-            { id: 2, name: "shopping2", current_version: 1}
+            { id: 1, current_version: 2},
+            { id: 2, current_version: 1}
         ],
         listver: [
-            { id: 5, parent_id: 1, published: 0, version: 0, fk_category_category_id: 1},
-            { id: 2, parent_id: 1, published: 1, version: 1, fk_category_category_id: 1, valid_from: "1435685769404", valid_to: "1438277769404" },
-            { id: 3, parent_id: 1, published: 1, version: 2, fk_category_category_id: 1, valid_from: "1435685769404" },
-            { id: 4, parent_id: 2, published: 1, version: 1, fk_category_category_id: 2, valid_from: "1435685769404" }
+            { id: 5, parent_id: 1, name: "shopping1", published: 0, version: 0, fk_category_category_id: 1},
+            { id: 2, parent_id: 1, name: "shopping1", published: 1, version: 1, fk_category_category_id: 1, valid_from: "1435685769404", valid_to: "1438277769404" },
+            { id: 3, parent_id: 1, name: "shopping1", published: 1, version: 2, fk_category_category_id: 1, valid_from: "1435685769404" },
+            { id: 4, parent_id: 2, name: "shopping2", published: 1, version: 1, fk_category_category_id: 2, valid_from: "1435685769404" }
         ],
         jn_items_item_listver: [
             { listver_id: 2, item_id: 3 },
