@@ -8,7 +8,7 @@ var config = {
 		"database": "test",
 		"charset": "utf8"
 	},
-	debug: false
+	debug: true
 };
 
 
@@ -58,7 +58,7 @@ factory.schemer.drop(schema).then(function() {
 		station_id: 1,
 		groups: [1, 2],
 		ignore1: 'x'
-	})
+	}, {idResponse: true, verify: false})
 	.end()
 	.then(function(results) {
 		
@@ -68,6 +68,7 @@ factory.schemer.drop(schema).then(function() {
 		console.log(JSON.stringify(results, null, '  '));
 		console.log('--------------------------------');
 	})
+	/*
 	.then(function() {
 		return models.survivor.forge().view('summary')
 		.saveResource({
@@ -118,8 +119,9 @@ factory.schemer.drop(schema).then(function() {
 			console.log(JSON.stringify(results, null, '  '));
 			console.log('--------------------------------');
 		});
-	});
+	})*/;
 })
+/*
 .then(function() {
 	
 	// delete a survivor
@@ -133,6 +135,7 @@ factory.schemer.drop(schema).then(function() {
 		console.log('--------------------------------');
 	});
 })
+*/
 .then(function() {
 	
 	// exit the app

@@ -52,9 +52,9 @@ return factory.transaction(function(t) {
 	//.activate('list-N1lX8sVU6', {force: true});
 	//.href('http://api.att.com')
 	.saveResource(obj)
-	.print({wrapText: '========SAVE===='})
+	.print({wrapText: '========SAVE====', pretty: true})
 	.publish({force: true})
-	.print({wrapText: '========PUB===='})
+	.print({wrapText: '========PUB====', pretty: true})
 	.saveResource({shared_with: [2,3]})
 	.publish({force: true});
 

@@ -12,7 +12,7 @@ var config = {
 		min: 10,
 	    max: 50
 	},
-	debug: false
+	debug: true
 };
 
 // import the modules
@@ -62,7 +62,7 @@ var obj2 = {
 		category: 2
 	};
 
-var objArray = [obj1, obj2];
+var objArray = [obj1];
 
 
 return models.list.forge()

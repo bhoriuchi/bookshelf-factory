@@ -10,5 +10,12 @@
 * add an order method **COMPLETED**
 * add a paginate method - potentially in dreamcatcher **COMPLETED**
 * update documentation **SOMEDAY**
+* Fix issue with versioned nested relationship using parent instead of version id for foreignkey **COMPLETED**
 
-* Fix issue with versioned nested relationship using parent instead of version id for foreignkey
+* Add Redis cache support
+* add options for status response on update actions
+* reduce SQL query count
+* update filter code to ignore relationships not in the current filter
+
+
+
