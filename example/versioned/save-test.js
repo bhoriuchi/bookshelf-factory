@@ -12,7 +12,8 @@ var config = {
 		min: 10,
 	    max: 50
 	},
-	debug: true
+	caching: {},
+	debug: false
 };
 
 // import the modules
@@ -40,7 +41,7 @@ var newItem = {
 
 
 var obj1 = {
-	name: 'My List',
+	name: 'My List' + (new Date()).getTime(),
 	description: 'my gorcery list',
 	use_current: false,
 	change_notes: 'Im saving a new list',

@@ -7,11 +7,11 @@ var config = {
 		"password": "password",
 		"database": "test",
 		"charset": "utf8"
-	},
+	},/*
 	ntp: [
-	    {host: "pool.ntp.org", port: 5000},
+	    {host: "pool.ntp.org", port: 123},
 	    {host: "ns-pdc.directv.com", port: 123}
-	],
+	],*/
 	ntpTimeout: 100,
 	debug: false
 };
@@ -31,6 +31,8 @@ var models;
 
 // forge all of the model definitions
 models = factory.create(schema);
+
+//console.log(JSON.stringify(models._schema, null, '  '));
 
 //console.log(models._relations);
 
@@ -135,8 +137,8 @@ return factory.models().list.forge()
 //.href('https://api.server.com')
 //.paginate(factory.statics.paginations.offset, req)
 //.search({search: '2', field: 'version'})
-//.view(['owner.name','owner.active', 'shared_with.version', 'shared_with.active'])
-.getResources({version: 0})
+.view('summary')
+.getResource('list-NkJG1d7Wx', {version: 0})
 //.getResource('list-Nkx2ZlWua', {maxDepth: 0})
 .end()
 .then(function(results) {

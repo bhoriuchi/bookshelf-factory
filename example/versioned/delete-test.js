@@ -8,6 +8,7 @@ var config = {
 		"database": "test",
 		"charset": "utf8"
 	},
+	caching: {},
 	debug: false
 };
 

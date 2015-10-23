@@ -36,7 +36,7 @@ factory.schemer.drop(schema).then(function() {
 			.query(function(qb) {
 				qb.limit(1);
 			})
-			.view()
+			.view(['sid', 'name', 'groups.id'])
 			.getResources().end();
 			
 		});
@@ -51,14 +51,16 @@ factory.schemer.drop(schema).then(function() {
 	console.log(JSON.stringify(results, null, '  '));
 	console.log('--------------------------------');
 	
+	process.exit();
+	
 	// save a new survivor
-	return models.survivor.forge().view('summary')
+	return models.survivor.forge().view()
 	.saveResource({
 		name: 'Jacob',
 		station_id: 1,
 		groups: [1, 2],
 		ignore1: 'x'
-	}, {idResponse: true, verify: false})
+	})
 	.end()
 	.then(function(results) {
 		

@@ -21,7 +21,7 @@ module.exports = {
             { id: 3, name: "others" },
             { id: 4, name: "oceanic6" }
         ],
-        junction_groups_group_survivor: [
+        jn_groups_group_survivor: [
             { survivor_sid: 1, group_id: 1 },
             { survivor_sid: 1, group_id: 4 },
             { survivor_sid: 2, group_id: 1 },
@@ -57,21 +57,22 @@ module.exports = {
         ],
         actor: [
             { id: 1, name: 'Matthew Fox'},
-            { id: 2, name: 'Jorge Garcia' }
+            { id: 2, name: 'Jorge Garcia' },
+            { id: 3, name: 'Evangeline Lily'}
         ],
         nickname: [
-            { id: 1, name: "Lardo" },
-            { id: 2, name: "Pork Pie"},
-            { id: 3, name: "Hoss"},
-            { id: 4, name: "Rerun"},
-            { id: 5, name: "Hammo"},
-            { id: 6, name: "Snuffy"},
-            { id: 7, name: "Montezuma"},
-            { id: 8, name: "Freckles"},
-            { id: 9, name: "Sheena"},
-            { id: 10, name: "Thelma"},
-            { id: 11, name: "Shortcake"},
-            { id: 12, name: "Sweetcheeks"},
-            { id: 13, name: "Puddin"}
+            { id: 1, name: "Lardo", fk_actor_nicknames_id: 2 },
+            { id: 2, name: "Pork Pie", fk_actor_nicknames_id: 2},
+            { id: 3, name: "Hoss", fk_actor_nicknames_id: 2},
+            { id: 4, name: "Rerun", fk_actor_nicknames_id: 2},
+            { id: 5, name: "Hammo", fk_actor_nicknames_id: 2},
+            { id: 6, name: "Snuffy", fk_actor_nicknames_id: 2},
+            { id: 7, name: "Montezuma", fk_actor_nicknames_id: 2},
+            { id: 8, name: "Freckles", fk_actor_nicknames_id: 3},
+            { id: 9, name: "Sheena", fk_actor_nicknames_id: 3},
+            { id: 10, name: "Thelma", fk_actor_nicknames_id: 3},
+            { id: 11, name: "Shortcake", fk_actor_nicknames_id: 3},
+            { id: 12, name: "Sweetcheeks", fk_actor_nicknames_id: 3},
+            { id: 13, name: "Puddin", fk_actor_nicknames_id: 3}
         ]
 };

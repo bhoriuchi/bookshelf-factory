@@ -8,7 +8,7 @@ var config = {
 		"database": "test",
 		"charset": "utf8"
 	},
-	debug: false
+	debug: true
 };
 
 // import the modules
@@ -23,13 +23,10 @@ schema = factory.prepareSchema(schema) || {};
 // forge all of the model definitions
 var models = factory.create(schema);
 
-var f = models.station;
-console.log(f);
-process.exit();
 
-
-return models.station.forge()
-.getResources()
+return models.actor.forge()
+//.view(['!character.groups.station', '!nicknames'])
+.getResource(2)
 .end()
 .then(function(results) {
 
