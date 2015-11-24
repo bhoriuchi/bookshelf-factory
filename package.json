@@ -26,18 +26,17 @@
     "url": "https://github.com/bhoriuchi/bookshelf-factory/issues"
   },
   "dependencies": {
-    "knex": "^0.8.6",
-    "bluebird": "^2.9.34",
-    "knex-schemer": "git+https://github.com/bhoriuchi/knex-schemer.git#master",
-    "bookshelf": "^0.8.2",
-    "dotprune": "^0.1.4",
+    "knex": "^0.9.0",
+    "bluebird": "^2.10.2",
+    "knex-schemer": "^0.1.16",
+    "bookshelf": "^0.9.1",
+    "dotprune": "^0.1.5",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "node-uuid": "^1.4.3",
     "shortid": "^2.2.2",
-    "qs": "^5.0.0",
-    "ntp-client": "^0.5.3",
-    "jsdoc": "*"
+    "qs": "^6.0.0",
+    "ntp-client": "^0.5.3"
   },
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
